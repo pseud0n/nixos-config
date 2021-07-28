@@ -1,0 +1,225 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""'
+set encoding=utf-8
+set number relativenumber
+syntax enable
+set noswapfile
+set scrolloff=7
+set backspace=indent,eol,start
+"set colorcolumn=81 "can write over column, not past it
+set fileformat=unix
+set mouse=a
+set splitbelow
+set splitright
+set ignorecase
+set fileignorecase
+set termguicolors
+
+set listchars=tab:·\ 
+
+let g:gruvbox_contrast_dark='soft'
+colorscheme gruvbox
+
+" Always show tabs
+set showtabline=2
+
+" We don't need to see things like -- INSERT -- anymore
+set noshowmode
+
+filetype plugin indent on
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set noexpandtab
+set autoindent
+set cindent
+
+let g:mapleader = "\<Space>"
+"nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+"nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
+
+nnoremap <C-H> <C-W><C-W>
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+
+map <ScrollWheelUp> <C-U>
+map <ScrollWheelDown> <C-D>
+
+"nmap <leader>gs :G<CR>
+"nmap <leader>gh :diffget //3<CR>
+"nmap <leader>gu :diffget //2<CR>
+
+"nnoremap <C-p> :GFiles <CR>
+
+"unmap <leader>
+
+nnoremap <leader><space> :History <CR>
+nnoremap <leader>lf :Lf <CR>
+nnoremap <leader>lc :Lfcd <CR>
+
+"nnoremap <leader>m :MaximizerToggle!<CR>
+
+nnoremap <silent> <CR> :noh<CR>
+
+nnoremap <Tab>n :tabnew<Space>
+nnoremap <Tab>k :tabnext<CR>
+nnoremap <Tab>j :tabprev<CR>
+nnoremap <Tab>h :tabfirst<CR>
+nnoremap <Tab>l :tablast<CR>
+
+nnoremap K i<CR><Esc>k$
+
+tnoremap <ESC> <C-\><C-n>
+
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+yg_
+nnoremap <leader>y "+y
+nnoremap <leader>yy "+yy
+
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+let s:wrapenabled = 0
+function! ToggleWrap()
+  set wrap nolist
+  if s:wrapenabled
+    set nolinebreak
+    unmap j
+    unmap k
+    unmap 0
+    unmap ^
+    unmap $
+    let s:wrapenabled = 0
+  else
+    set linebreak
+    nnoremap j gj
+    nnoremap k gk
+    nnoremap 0 g0
+    nnoremap ^ g^
+    nnoremap $ g$
+    vnoremap j gj
+    vnoremap k gk
+    vnoremap 0 g0
+    vnoremap ^ g^
+    vnoremap $ g$
+	let s:wrapenabled = 1
+  endif
+endfunction
+map <leader>w :call ToggleWrap()<CR>
+
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+autocmd FileType fish compiler fish
+"autocmd FileType *.hs set ts=2 sw=2 expandtab
+
+let g:lf_map_keys = 0
+
+let g:ctrlp_show_hidden = 1
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.git$',
+  \ 'file': '\v\.(exe|so|dll|o)$',
+  \ 'link': '',
+  \ }
+
+let g:ctrlsf_default_view_mode = 'compact'
+let g:ctrlsf_auto_close = {
+    \ "normal" : 0,
+    \ "compact": 0
+    \}
+
+let g:ctrlsf_auto_focus = {
+    \ "at": "start"
+    \ }
+nmap     <leader>ff <Plug>CtrlSFPrompt
+vmap     <leader>ff <Plug>CtrlSFVwordPath
+vmap     <leader>fF <Plug>CtrlSFVwordExec
+nmap     <leader>fw <Plug>CtrlSFCwordPath
+nmap     <leader>fW <Plug>CtrlSFPwordPath
+nnoremap <leader>fo :CtrlSFOpen<CR>
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemode = ':t'
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_theme = 'minimalist'
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline#extensions#tabline#right_sep = ''
+let g:airline#extensions#tabline#right_alt_sep = ''
+
+" enable powerline fonts
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+
+let g:airline_mode_map = {
+    \ '__'     : '-',
+    \ 'c'      : 'C',
+    \ 'i'      : 'I',
+    \ 'ic'     : 'I',
+    \ 'ix'     : 'I',
+    \ 'n'      : 'N',
+    \ 'multi'  : 'M',
+    \ 'ni'     : 'N',
+    \ 'no'     : 'N',
+    \ 'R'      : 'R',
+    \ 'Rv'     : 'R',
+    \ 's'      : 'S',
+    \ 'S'      : 'S',
+    \ ''     : 'S',
+    \ 't'      : 'T',
+    \ 'v'      : 'V',
+    \ 'V'      : 'VL',
+    \ ''     : 'VB',
+    \ }
+
+let g:airline_focuslost_inactive = 1
+let g:airline_stl_path_style = 'short'
+
+let g:airline_section_z = ''
+
+let g:user_emmet_mode='n'
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+let g:user_emmet_leader_key='<leader>'
+
+let g:suda_smart_edit = 1
+
+set signcolumn=yes
+"
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)

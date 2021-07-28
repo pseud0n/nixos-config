@@ -1,0 +1,10 @@
+input "ELECOM TrackBall Mouse DEFT Pro TrackBall Mouse" {
+pointer_accel 1
+}
+gaps inner 10
+gaps outer 5
+default_border pixel 2
+
+exec makoctl reload
+exec mkfifo /tmp/wobpipe
+exec 'tail -f /tmp/wobpipe | wob -a top -a right --padding 0 --margin 10 --border 0 --height 25 --width 200 --bar-color "#FF2A2A2A"'
