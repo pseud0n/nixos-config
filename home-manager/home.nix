@@ -66,7 +66,19 @@ in rec {
 	home.packages = 
 		let
 			cliMiscPackages = with pkgs; [
-				hello
+#				(import (builtins.fetchFromGitHub {
+#					owner = "Shopify";
+#					repo = "comma";
+#					rev = "4a62ec17e20ce0e738a8e5126b4298a73903b468";
+#					sha256 = "0n5a3rnv9qnnsrl76kpi6dmaxmwj1mpdd2g0b4n1wfimqfaz6gi1";
+#				}))
+				#(import (builtins.fetchTarball "https://github.com/shopify/comma/archive/master.tar.gz") {})
+
+				(import (builtins.fetchGit {
+					url = "https://github.com/shopify/comma";
+					ref = "master";
+					rev = "4a62ec17e20ce0e738a8e5126b4298a73903b468"; 
+				}) {})
 				bat
 				nix-prefetch-git
 				grub2
@@ -88,10 +100,12 @@ in rec {
 				sxiv
 				xdg-utils
 				libinput
-                                jq
+				jq
 			];
 
 			guiMiscPackages = with pkgs; [
+				qtchan
+				neovim-qt
 				libreoffice
 				#firefox-wayland
 				etcher
@@ -118,8 +132,8 @@ in rec {
 				gnumake
 				cmake
 
-				gcc10
-				#clang_11
+				clang_11
+                clang-tools
 				flex
 				bison
 				boost
@@ -148,13 +162,16 @@ in rec {
 
 			haskellPackages = with pkgs.haskellPackages; [
 				haskell-language-server
+                hoogle
 				ghcid
+
 				vector
 			];
 
 			swayPackages = with pkgs; [
 				swayidle # Customise idle behaviour
-				swaylock # Lock screen
+                ##swaylock # Lock screen
+                swaylock-effects # Various fancy effects
 				waybar # Info bar
 				grim # Take screenshot
 				slurp # Select area on screen
@@ -176,62 +193,81 @@ in rec {
 			swayPackages
 	;
 
-	
 	programs.bat.enable = true;
 
 	programs.neovim = {
 		enable = true;
 		vimAlias = true;
 		extraConfig = readConfig /nvim/init.vim;
-		plugins = with pkgs.vimPlugins; [
-                        # Aesthetics
-			gruvbox # Nice colour scheme
-            
+		plugins =
+			let ctrlsf-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+				name = "ctrlsf-vim";
+				src = pkgs.fetchFromGitHub {
+					owner = "dyng";
+					repo = "ctrlsf.vim";
+					rev = "51c5b285146f042bd2015278f9b8ad74ae915e00";
+					sha256 = "1901cr6sbaa8js4ylirz9p4m0r9q0a06gm71ghl6kp6pw7h5fgmq";
+				};
+			}; in
+			with pkgs.vimPlugins; [
+#				{
+#					plugin = nvim-colorizer-lua;
+#					config = ''
+#						packadd! nvim-colorizer.lua
+#						lua require 'colorizer'.setup()
+#						'';
+#				}
+				# Aesthetics
+				gruvbox # Nice colour scheme
+        	    vim-airline # Line at bottom of screen
+				vim-airline-themes # Gruvbox of course!
 
-                        vim-airline # Line at bottom of screen
-                        vim-airline-themes # Gruvbox of course!
+				#vim-bufferline
+        	    #nvim-bufferline-lua
+				#barbar-nvim # Better tabs
+                #nvim-web-devicons
 
-                        vim-smoothie # Smooth scrolling
+				vim-smoothie # Smooth scrolling
 
-                        # Language support
-			vim-nix
-                        vim-fish
+				# Language support
+				vim-nix
+				vim-fish
 
-                        emmet-vim # generate HTML (like zen coding)
+				vim-markdown # md support
 
-                        vim-markdown # md support
+				coc-nvim
+				coc-python
+				coc-clangd
+				coc-rls
+				coc-css
+				coc-html
+				coc-tsserver
+				coc-json
+				coc-cmake
 
-			coc-nvim
-			coc-python
-			coc-clangd
-			coc-rls
-			coc-css
-			coc-html
-			coc-tsserver
-			coc-json
-			coc-cmake
+				# Utilities
+				suda-vim # sudo, but without launching Vim with sudo
+				#vim-maximizer # makes window fill screen
+				auto-pairs # Pairs, adds spaces, newline support
+				nvim-colorizer-lua # Highlights colour codes in cod
+				vimsence # Discord rich presence
+				vim-hoogle # Hoogle search within Vim
+				emmet-vim # generate HTML (like zen coding)
 
-                        # Utilities
-                        suda-vim # sudo, but without launching Vim with sudo
-                        #vim-maximizer # makes window fill screen
-
-                        auto-pairs # Pairs, adds spaces, newline support
-                        nvim-colorizer-lua # Highlights colour codes in cod
-                        vimsence # Discord rich presence
-
-                        # Movement
-                        vim-sneak
-                        ctrlp-vim
-                        vim-floaterm
-                        lf-vim
-                        fzf-vim
-
-                        # Git
-                        vim-signify
-                        vim-fugitive
-                        vim-rhubarb
-                        vim-gitbranch
-		];
+				# Movement
+				vim-sneak
+				ctrlp-vim
+				ctrlsf-vim
+				vim-floaterm
+				lf-vim
+				fzf-vim
+				
+				# Git
+				vim-signify
+				vim-fugitive
+				vim-rhubarb
+				vim-gitbranch
+			];
 	};
 
 	xdg.mimeApps = {

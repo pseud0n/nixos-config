@@ -8,3 +8,8 @@ default_border pixel 2
 exec makoctl reload
 exec mkfifo /tmp/wobpipe
 exec 'tail -f /tmp/wobpipe | wob -a top -a right --padding 0 --margin 10 --border 0 --height 25 --width 200 --bar-color "#FF2A2A2A"'
+
+exec swayidle -w \
+         timeout 300 /etc/nixos/home-manager/config/sway/scripts/swaylock.bash \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep /etc/nixos/home-manager/config/sway/scripts/swaylock.bash \ 

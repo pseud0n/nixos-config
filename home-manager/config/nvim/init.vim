@@ -13,7 +13,9 @@ set splitright
 set ignorecase
 set fileignorecase
 set termguicolors
+set hidden
 
+set list
 set listchars=tab:·\ 
 
 let g:gruvbox_contrast_dark='soft'
@@ -67,18 +69,56 @@ nnoremap <leader>lc :Lfcd <CR>
 
 nnoremap <silent> <CR> :noh<CR>
 
-nnoremap <Tab>n :tabnew<Space>
-nnoremap <Tab>k :tabnext<CR>
-nnoremap <Tab>j :tabprev<CR>
-nnoremap <Tab>h :tabfirst<CR>
-nnoremap <Tab>l :tablast<CR>
+nnoremap <leader>/ :BLines<CR>
+
+nnoremap <silent> <Tab>n :enew<CR>
+nnoremap <silent> <Tab>k :bnext<CR>
+nnoremap <silent> <Tab>j :bprevious<CR>
+nnoremap <silent> <Tab>h :bfirst<CR>
+nnoremap <silent> <Tab>l :blast<CR>
+nnoremap <silent> <Tab>q :bd<CR>
+
+"nnoremap <Tab>n :tabnew<Space>
+"nnoremap <Tab>k :tabnext<CR>
+"nnoremap <Tab>j :tabprev<CR>
+"nnoremap <Tab>h :tabfirst<CR>
+"nnoremap <Tab>l :tablast<CR>
+
+"nnoremap <silent>    <Tab>j :BufferPrevious<CR>
+"nnoremap <silent>    <Tab>k :BufferNext<CR>
+"
+"nnoremap <silent>    <Tab>J :BufferMovePrevious<CR>
+"nnoremap <silent>    <Tab>K :BufferMoveNext<CR>
+"
+"nnoremap <silent>    <Tab>h :BufferGoto 1<CR>
+"nnoremap <silent>    <Tab>l :BufferLast<CR>
+"
+"nnoremap <silent>    <Tab>1 :BufferGoto 1<CR>
+"nnoremap <silent>    <Tab>2 :BufferGoto 2<CR>
+"nnoremap <silent>    <Tab>3 :BufferGoto 3<CR>
+"nnoremap <silent>    <Tab>4 :BufferGoto 4<CR>
+"nnoremap <silent>    <Tab>5 :BufferGoto 5<CR>
+"nnoremap <silent>    <Tab>6 :BufferGoto 6<CR>
+"nnoremap <silent>    <Tab>7 :BufferGoto 7<CR>
+"nnoremap <silent>    <Tab>8 :BufferGoto 8<CR>
+"nnoremap <silent>    <Tab>9 :BufferGoto 9<CR>
+"
+"nnoremap <silent>    <Tab>q :BufferClose<CR>
+"
+"let bufferline.icon_close_tab = ''
+"let bufferline.icon_close_tab_modified = '●'
+"let bufferline.animation = v:true
+"let bufferline.auto_hide = v:true
 
 nnoremap K i<CR><Esc>k$
 
 tnoremap <ESC> <C-\><C-n>
 
+nnoremap Y yg_
+
 vnoremap <leader>y "+y
-nnoremap <leader>Y "+yg_
+vnoremap <leader>y "+y
+nnoremap <leader>Y "+Y
 nnoremap <leader>y "+y
 nnoremap <leader>yy "+yy
 
@@ -86,6 +126,20 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 vnoremap <leader>p "+p
 vnoremap <leader>P "+P
+
+let s:twoSpaceMode = 0
+function! ToggleTabMode()
+	if s:twoSpaceMode
+		set ts=4 sw=4 noexpandtab
+		let s:twoSpaceMode = 0
+	else
+		set ts=2 sw=2 expandtab
+		let s:twoSpaceMode = 1
+	endif
+endfunction
+
+
+map <leader>t :call ToggleTabMode()<CR>
 
 let s:wrapenabled = 0
 function! ToggleWrap()
@@ -121,7 +175,6 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 autocmd FileType fish compiler fish
-"autocmd FileType *.hs set ts=2 sw=2 expandtab
 
 let g:lf_map_keys = 0
 
