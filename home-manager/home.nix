@@ -470,6 +470,7 @@ in rec {
 		enable = true;
 		userName = "pseud0n";
 		userEmail = "pseud0n@users.noreply.github.com";
+        # SSH key stored locally
 	};
 	
 	programs.firefox = {
@@ -481,7 +482,7 @@ in rec {
 #		profiles.default = {
 #			id = 0;
 #			settings = {
-#				"browser.search.defaultenginename" = "Google";
+#				"browser.search.defaultenginename" = "Ecosia";
 #				"font.name.monospace.x-western" = "FiraCode Nerd Font Mono";
 #			};
 #		};
