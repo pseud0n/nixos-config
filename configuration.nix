@@ -20,6 +20,8 @@ in {
 			#./home-manager/home.nix
 		];
 
+	nixpkgs.config.allowUnfree = true; # proprietary drivers
+
 	nixpkgs.config.packageOverrides = pkgs: {
 	        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
 	        	inherit pkgs;
@@ -70,6 +72,9 @@ in {
 
 	xdg.portal.enable = true;
 	systemd.services.upower.enable = true;
+
+    programs.xwayland.enable = true;
+
 	services = {
 		flatpak.enable = true;
 	 	gnome.gnome-keyring.enable = true;
@@ -77,10 +82,11 @@ in {
 
 		xserver = {
 			enable = true;
+            synaptics.accelFactor = "2.0";
 			libinput = {
 				enable = true;
-				touchpad.accelProfile = "adaptive";
-				touchpad.accelSpeed = "2.0";
+				mouse.accelProfile = "adaptive";
+				mouse.accelSpeed = "2.0";
 			};
 			displayManager = {
 				defaultSession = "sway";
@@ -200,8 +206,6 @@ in {
 #	};
 
 	boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
-	nixpkgs.config.allowUnfree = true; # proprietary drivers
-
 	boot.kernelModules = [ "wl" ]; # set of kernel modules loaded in second stage of boot process
 	boot.initrd.kernelModules = [ "kvm-intel" "wl" ]; # list of modules always loaded by the initrd (initial ramdisk)
 

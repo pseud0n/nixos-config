@@ -1,0 +1,783 @@
+00:00:00.000 [INFO] [sway/main.c:347] Sway version 1.6.1
+00:00:00.000 [INFO] [sway/main.c:348] wlroots version 0.14.1
+00:00:00.004 [INFO] [sway/main.c:155] Linux nixos 5.10.48 #1-NixOS SMP Wed Jul 7 12:27:50 UTC 2021 x86_64 GNU/Linux
+00:00:00.004 [INFO] [sway/main.c:171] Contents of /etc/os-release:
+00:00:00.004 [INFO] [sway/main.c:155] NAME=NixOS
+00:00:00.004 [INFO] [sway/main.c:155] ID=nixos
+00:00:00.004 [INFO] [sway/main.c:155] VERSION="21.05.1510.a165aeceda9 (Okapi)"
+00:00:00.004 [INFO] [sway/main.c:155] VERSION_CODENAME=okapi
+00:00:00.004 [INFO] [sway/main.c:155] VERSION_ID="21.05.1510.a165aeceda9"
+00:00:00.004 [INFO] [sway/main.c:155] PRETTY_NAME="NixOS 21.05 (Okapi)"
+00:00:00.004 [INFO] [sway/main.c:155] LOGO="nix-snowflake"
+00:00:00.004 [INFO] [sway/main.c:155] HOME_URL="https://nixos.org/"
+00:00:00.004 [INFO] [sway/main.c:155] DOCUMENTATION_URL="https://nixos.org/learn.html"
+00:00:00.004 [INFO] [sway/main.c:155] SUPPORT_URL="https://nixos.org/community.html"
+00:00:00.004 [INFO] [sway/main.c:155] BUG_REPORT_URL="https://github.com/NixOS/nixpkgs/issues"
+00:00:00.004 [INFO] [sway/main.c:143] LD_LIBRARY_PATH=/run/opengl-driver/lib:/run/opengl-driver-32/lib
+00:00:00.004 [INFO] [sway/main.c:143] LD_PRELOAD=
+00:00:00.004 [INFO] [sway/main.c:143] PATH=/run/wrappers/bin:/home/alexs/.local/share/flatpak/exports/bin:/var/lib/flatpak/exports/bin:/home/alexs/.nix-profile/bin:/etc/profiles/per-user/alexs/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin
+00:00:00.004 [INFO] [sway/main.c:143] SWAYSOCK=/run/user/1000/sway-ipc.1000.1224.sock
+00:00:00.004 [DEBUG] [sway/server.c:47] Preparing Wayland server initialization
+00:00:00.005 [INFO] [wlr] [backend/wayland/backend.c:383] Creating wayland backend
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: wl_shm v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: wl_drm v2
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwp_linux_dmabuf_v1 v3
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: wl_compositor v4
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: wl_subcompositor v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: wl_data_device_manager v3
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwlr_gamma_control_manager_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zxdg_output_manager_v1 v3
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: org_kde_kwin_idle v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwp_idle_inhibit_manager_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwlr_layer_shell_v1 v4
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: xdg_wm_base v2
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwp_tablet_manager_v2 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: org_kde_kwin_server_decoration_manager v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zxdg_decoration_manager_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwp_relative_pointer_manager_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwp_pointer_constraints_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: wp_presentation v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwlr_output_manager_v1 v2
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwlr_output_power_manager_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwp_input_method_manager_v2 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwp_text_input_manager_v3 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwlr_foreign_toplevel_manager_v1 v3
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwlr_export_dmabuf_manager_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwlr_screencopy_manager_v1 v3
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwlr_data_control_manager_v1 v2
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwp_primary_selection_device_manager_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: wp_viewporter v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zxdg_exporter_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zxdg_importer_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zxdg_exporter_v2 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zxdg_importer_v2 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwp_virtual_keyboard_manager_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwlr_virtual_pointer_manager_v1 v2
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwlr_input_inhibit_manager_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwp_keyboard_shortcuts_inhibit_manager_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: wl_seat v7
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: zwp_pointer_gestures_v1 v1
+00:00:00.005 [DEBUG] [wlr] [backend/wayland/backend.c:208] Remote wayland global: wl_output v3
+00:00:00.006 [DEBUG] [wlr] [backend/wayland/seat.c:754] seat 0x1074e40 offered pointer
+00:00:00.006 [DEBUG] [wlr] [backend/wayland/seat.c:791] seat 0x1074e40 offered keyboard
+00:00:00.006 [DEBUG] [wlr] [backend/wayland/backend.c:437] Opening DRM render node /dev/dri/renderD128
+00:00:00.057 [INFO] [wlr] [render/egl.c:312] Using EGL 1.5
+00:00:00.058 [INFO] [wlr] [render/egl.c:313] Supported EGL client extensions: EGL_EXT_device_base EGL_EXT_device_enumeration EGL_EXT_device_query EGL_EXT_platform_base EGL_KHR_client_get_all_proc_addresses EGL_EXT_client_extensions EGL_KHR_debug EGL_EXT_platform_device EGL_EXT_platform_wayland EGL_KHR_platform_wayland EGL_EXT_platform_x11 EGL_KHR_platform_x11 EGL_MESA_platform_xcb EGL_MESA_platform_gbm EGL_KHR_platform_gbm EGL_MESA_platform_surfaceless
+00:00:00.058 [INFO] [wlr] [render/egl.c:314] Supported EGL display extensions: EGL_ANDROID_blob_cache EGL_ANDROID_native_fence_sync EGL_EXT_buffer_age EGL_EXT_create_context_robustness EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_IMG_context_priority EGL_KHR_cl_event2 EGL_KHR_config_attribs EGL_KHR_create_context EGL_KHR_create_context_no_error EGL_KHR_fence_sync EGL_KHR_get_all_proc_addresses EGL_KHR_gl_colorspace EGL_KHR_gl_renderbuffer_image EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_image EGL_KHR_image_base EGL_KHR_image_pixmap EGL_KHR_no_config_context EGL_KHR_reusable_sync EGL_KHR_surfaceless_context EGL_EXT_pixel_format_float EGL_KHR_wait_sync EGL_MESA_configless_context EGL_MESA_drm_image EGL_MESA_image_dma_buf_export EGL_MESA_query_driver EGL_WL_bind_wayland_display 
+00:00:00.058 [INFO] [wlr] [render/egl.c:316] Supported EGL device extensions: EGL_EXT_device_drm
+00:00:00.058 [INFO] [wlr] [render/egl.c:318] EGL vendor: Mesa Project
+00:00:00.058 [DEBUG] [wlr] [render/egl.c:149] Supported DMA-BUF formats: AB4H XB4H AR30 XR30 AB30 AR24 AB24 XR24 XB24 AR15 RG16 R8   R16  GR88 GR32 YUV9 YU11 YU12 YU16 YU24 YVU9 YV11 YV12 YV16 YV24 NV12 P010 P012 P016 NV16 AYUV XYUV YUYV UYVY 
+00:00:00.058 [DEBUG] [wlr] [render/egl.c:150] EGL DMA-BUF format modifiers supported
+00:00:00.059 [DEBUG] [wlr] [render/egl.c:361] Obtained high priority context
+00:00:00.061 [INFO] [wlr] [render/gles2/renderer.c:784] Creating GLES2 renderer
+00:00:00.061 [INFO] [wlr] [render/gles2/renderer.c:785] Using OpenGL ES 3.2 Mesa 21.0.1
+00:00:00.061 [INFO] [wlr] [render/gles2/renderer.c:786] GL vendor: Intel
+00:00:00.061 [INFO] [wlr] [render/gles2/renderer.c:787] GL renderer: Mesa Intel(R) HD Graphics 520 (SKL GT2)
+00:00:00.061 [INFO] [wlr] [render/gles2/renderer.c:788] Supported GLES2 extensions: GL_EXT_blend_minmax GL_EXT_multi_draw_arrays GL_EXT_texture_filter_anisotropic GL_EXT_texture_compression_s3tc GL_EXT_texture_compression_dxt1 GL_EXT_texture_compression_rgtc GL_EXT_texture_format_BGRA8888 GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth24 GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_mapbuffer GL_OES_rgb8_rgba8 GL_OES_standard_derivatives GL_OES_stencil8 GL_OES_texture_3D GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_vertex_half_float GL_EXT_draw_instanced GL_EXT_texture_sRGB_decode GL_OES_EGL_image GL_OES_depth_texture GL_AMD_performance_monitor GL_OES_packed_depth_stencil GL_EXT_texture_type_2_10_10_10_REV GL_NV_conditional_render GL_OES_get_program_binary GL_APPLE_texture_max_level GL_EXT_discard_framebuffer GL_EXT_read_format_bgra GL_EXT_frag_depth GL_NV_fbo_color_attachments GL_OES_EGL_image_external GL_OES_EGL_sync GL_OES_vertex_array_object GL_OES_viewport_array GL_ANGLE_pack_reverse_row_order GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_EXT_occlusion_query_boolean GL_EXT_robustness GL_EXT_texture_rg GL_EXT_unpack_subimage GL_NV_draw_buffers GL_NV_read_buffer GL_NV_read_depth GL_NV_read_depth_stencil GL_NV_read_stencil GL_EXT_draw_buffers GL_EXT_map_buffer_range GL_KHR_debug GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_NV_pixel_buffer_object GL_OES_depth_texture_cube_map GL_OES_required_internalformat GL_OES_surfaceless_context GL_EXT_color_buffer_float GL_EXT_sRGB_write_control GL_EXT_separate_shader_objects GL_EXT_shader_framebuffer_fetch GL_EXT_shader_group_vote GL_EXT_shader_implicit_conversions GL_EXT_shader_integer_mix GL_EXT_tessellation_point_size GL_EXT_tessellation_shader GL_INTEL_conservative_rasterization GL_INTEL_performance_query GL_ANDROID_extension_pack_es31a GL_EXT_base_instance GL_EXT_compressed_ETC1_RGB8_sub_texture GL_EXT_copy_image GL_EXT_draw_buffers_indexed GL_EXT_draw_elements_base_vertex GL_EXT_gpu_shader5 GL_EXT_polygon_offset_clamp GL_EXT_primitive_bounding_box GL_EXT_render_snorm GL_EXT_shader_io_blocks GL_EXT_texture_border_clamp GL_EXT_texture_buffer GL_EXT_texture_cube_map_array GL_EXT_texture_norm16 GL_EXT_texture_view GL_KHR_blend_equation_advanced GL_KHR_blend_equation_advanced_coherent GL_KHR_context_flush_control GL_KHR_robust_buffer_access_behavior GL_NV_image_formats GL_OES_copy_image GL_OES_draw_buffers_indexed GL_OES_draw_elements_base_vertex GL_OES_gpu_shader5 GL_OES_primitive_bounding_box GL_OES_sample_shading GL_OES_sample_variables GL_OES_shader_io_blocks GL_OES_shader_multisample_interpolation GL_OES_tessellation_point_size GL_OES_tessellation_shader GL_OES_texture_border_clamp GL_OES_texture_buffer GL_OES_texture_cube_map_array GL_OES_texture_stencil8 GL_OES_texture_storage_multisample_2d_array GL_OES_texture_view GL_EXT_blend_func_extended GL_EXT_buffer_storage GL_EXT_float_blend GL_EXT_geometry_point_size GL_EXT_geometry_shader GL_EXT_shader_samples_identical GL_EXT_texture_sRGB_R8 GL_KHR_no_error GL_KHR_texture_compression_astc_sliced_3d GL_NV_fragment_shader_interlock GL_OES_EGL_image_external_essl3 GL_OES_geometry_point_size GL_OES_geometry_shader GL_OES_shader_image_atomic GL_EXT_clip_cull_distance GL_EXT_disjoint_timer_query GL_EXT_texture_compression_s3tc_srgb GL_MESA_shader_integer_functions GL_EXT_clip_control GL_EXT_color_buffer_half_float GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_texture_compression_bptc GL_KHR_parallel_shader_compile GL_EXT_EGL_image_storage GL_EXT_shader_framebuffer_fetch_non_coherent GL_EXT_texture_shadow_lod GL_INTEL_blackhole_render GL_MESA_framebuffer_flip_y GL_NV_compute_shader_derivatives GL_EXT_demote_to_helper_invocation GL_EXT_depth_clamp GL_EXT_texture_query_lod 
+00:00:00.068 [DEBUG] [wlr] [render/allocator.c:30] Trying to create gbm allocator
+00:00:00.074 [DEBUG] [wlr] [render/gbm_allocator.c:196] Created GBM allocator with backend drm
+00:00:00.074 [DEBUG] [wlr] [render/gbm_allocator.c:199] Using DRM node /dev/dri/renderD128
+00:00:00.075 [INFO] [sway/main.c:396] Starting sway version 1.6.1
+00:00:00.075 [DEBUG] [sway/server.c:60] Initializing Wayland server
+00:00:00.075 [DEBUG] [wlr] [types/wlr_idle.c:247] idle manager created
+00:00:00.075 [INFO] [wlr] [wayland] unable to lock lockfile /run/user/1000/wayland-1.lock, maybe another compositor is running
+00:00:00.075 [INFO] [wlr] [backend/noop/backend.c:59] Creating noop backend
+00:00:00.075 [INFO] [wlr] [backend/headless/backend.c:227] Creating headless backend with parent renderer
+00:00:00.075 [DEBUG] [wlr] [render/allocator.c:30] Trying to create gbm allocator
+00:00:00.081 [DEBUG] [wlr] [render/gbm_allocator.c:196] Created GBM allocator with backend drm
+00:00:00.081 [DEBUG] [wlr] [render/gbm_allocator.c:199] Using DRM node /dev/dri/renderD128
+00:00:00.084 [INFO] [sway/config.c:405] Loading config from /home/alexs/.config/sway/config
+00:00:00.084 [DEBUG] [sway/config.c:819] Read line 1: font pango:monospace 8.000000
+00:00:00.084 [INFO] [sway/commands.c:377] Config command: font pango:monospace 8.000000
+00:00:00.084 [INFO] [sway/commands.c:397] After replacement: font pango:monospace 8.000000
+00:00:00.084 [DEBUG] [sway/config.c:819] Read line 2: floating_modifier Mod4
+00:00:00.084 [INFO] [sway/commands.c:377] Config command: floating_modifier Mod4
+00:00:00.084 [INFO] [sway/commands.c:397] After replacement: floating_modifier Mod4
+00:00:00.084 [DEBUG] [sway/config.c:819] Read line 3: default_border pixel 2
+00:00:00.084 [INFO] [sway/commands.c:377] Config command: default_border pixel 2
+00:00:00.084 [INFO] [sway/commands.c:397] After replacement: default_border pixel 2
+00:00:00.084 [DEBUG] [sway/config.c:819] Read line 4: default_floating_border pixel 2
+00:00:00.084 [INFO] [sway/commands.c:377] Config command: default_floating_border pixel 2
+00:00:00.084 [INFO] [sway/commands.c:397] After replacement: default_floating_border pixel 2
+00:00:00.084 [DEBUG] [sway/config.c:819] Read line 5: hide_edge_borders none
+00:00:00.084 [INFO] [sway/commands.c:377] Config command: hide_edge_borders none
+00:00:00.084 [INFO] [sway/commands.c:397] After replacement: hide_edge_borders none
+00:00:00.084 [DEBUG] [sway/config.c:819] Read line 6: focus_wrapping no
+00:00:00.084 [INFO] [sway/commands.c:377] Config command: focus_wrapping no
+00:00:00.084 [INFO] [sway/commands.c:397] After replacement: focus_wrapping no
+00:00:00.084 [DEBUG] [sway/config.c:819] Read line 7: focus_follows_mouse yes
+00:00:00.084 [INFO] [sway/commands.c:377] Config command: focus_follows_mouse yes
+00:00:00.084 [INFO] [sway/commands.c:397] After replacement: focus_follows_mouse yes
+00:00:00.084 [DEBUG] [sway/config.c:819] Read line 8: focus_on_window_activation smart
+00:00:00.084 [INFO] [sway/commands.c:377] Config command: focus_on_window_activation smart
+00:00:00.084 [INFO] [sway/commands.c:397] After replacement: focus_on_window_activation smart
+00:00:00.084 [DEBUG] [sway/config.c:819] Read line 9: mouse_warping output
+00:00:00.084 [INFO] [sway/commands.c:377] Config command: mouse_warping output
+00:00:00.084 [INFO] [sway/commands.c:397] After replacement: mouse_warping output
+00:00:00.084 [DEBUG] [sway/config.c:819] Read line 10: workspace_layout default
+00:00:00.084 [INFO] [sway/commands.c:377] Config command: workspace_layout default
+00:00:00.084 [INFO] [sway/commands.c:397] After replacement: workspace_layout default
+00:00:00.084 [DEBUG] [sway/config.c:819] Read line 11: workspace_auto_back_and_forth no
+00:00:00.084 [INFO] [sway/commands.c:377] Config command: workspace_auto_back_and_forth no
+00:00:00.084 [INFO] [sway/commands.c:397] After replacement: workspace_auto_back_and_forth no
+00:00:00.084 [DEBUG] [sway/config.c:819] Read line 12: 
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 13: client.focused #cc241d #cc241d #cc241d #d79921 #d79921
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: client.focused #cc241d #cc241d #cc241d #d79921 #d79921
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: client.focused #cc241d #cc241d #cc241d #d79921 #d79921
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 14: client.focused_inactive #cc241d #cc241d #cc241d #a89984 #a89984
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: client.focused_inactive #cc241d #cc241d #cc241d #a89984 #a89984
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: client.focused_inactive #cc241d #cc241d #cc241d #a89984 #a89984
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 15: client.unfocused #cc241d #cc241d #cc241d #a89984 #a89984
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: client.unfocused #cc241d #cc241d #cc241d #a89984 #a89984
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: client.unfocused #cc241d #cc241d #cc241d #a89984 #a89984
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 16: client.urgent #cc241d #cc241d #cc241d #fe8019 #fe8019
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: client.urgent #cc241d #cc241d #cc241d #fe8019 #fe8019
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: client.urgent #cc241d #cc241d #cc241d #fe8019 #fe8019
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 17: client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: client.placeholder #000000 #0c0c0c #ffffff #000000 #0c0c0c
+00:00:00.085 [INFO] [sway/commands/client.c:80] Warning: client.placeholder is ignored by sway
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 18: client.background #ffffff
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: client.background #ffffff
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: client.background #ffffff
+00:00:00.085 [INFO] [sway/commands/client.c:80] Warning: client.background is ignored by sway
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 19: 
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 20: 
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 21: bindsym Ctrl+Mod1+t exec alacritty
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Ctrl+Mod1+t exec alacritty
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Ctrl+Mod1+t exec alacritty
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Ctrl+Mod1+t to command `exec alacritty` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 22: bindsym Ctrl+Mod4+Left workspace prev
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Ctrl+Mod4+Left workspace prev
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Ctrl+Mod4+Left workspace prev
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Ctrl+Mod4+Left to command `workspace prev` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 23: bindsym Ctrl+Mod4+Right workspace next
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Ctrl+Mod4+Right workspace next
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Ctrl+Mod4+Right workspace next
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Ctrl+Mod4+Right to command `workspace next` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 24: bindsym Ctrl+Mod4+h workspace prev
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Ctrl+Mod4+h workspace prev
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Ctrl+Mod4+h workspace prev
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Ctrl+Mod4+h to command `workspace prev` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 25: bindsym Ctrl+Mod4+l workspace next
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Ctrl+Mod4+l workspace next
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Ctrl+Mod4+l workspace next
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Ctrl+Mod4+l to command `workspace next` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 26: bindsym Mod4+0 workspace number 10
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+0 workspace number 10
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+0 workspace number 10
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+0 to command `workspace number 10` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 27: bindsym Mod4+1 workspace number 1
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+1 workspace number 1
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+1 workspace number 1
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+1 to command `workspace number 1` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 28: bindsym Mod4+2 workspace number 2
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+2 workspace number 2
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+2 workspace number 2
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+2 to command `workspace number 2` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 29: bindsym Mod4+3 workspace number 3
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+3 workspace number 3
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+3 workspace number 3
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+3 to command `workspace number 3` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 30: bindsym Mod4+4 workspace number 4
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+4 workspace number 4
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+4 workspace number 4
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+4 to command `workspace number 4` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 31: bindsym Mod4+5 workspace number 5
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+5 workspace number 5
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+5 workspace number 5
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+5 to command `workspace number 5` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 32: bindsym Mod4+6 workspace number 6
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+6 workspace number 6
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+6 workspace number 6
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+6 to command `workspace number 6` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 33: bindsym Mod4+7 workspace number 7
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+7 workspace number 7
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+7 workspace number 7
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+7 to command `workspace number 7` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 34: bindsym Mod4+8 workspace number 8
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+8 workspace number 8
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+8 workspace number 8
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+8 to command `workspace number 8` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 35: bindsym Mod4+9 workspace number 9
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+9 workspace number 9
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+9 workspace number 9
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+9 to command `workspace number 9` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 36: bindsym Mod4+Down focus down
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Down focus down
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Down focus down
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Down to command `focus down` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 37: bindsym Mod4+Left focus left
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Left focus left
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Left focus left
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Left to command `focus left` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 38: bindsym Mod4+Print exec grim -g "$(slurp)" - | wl-copy
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Print exec grim -g "$(slurp)" - | wl-copy
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Print exec grim -g "$(slurp)" - | wl-copy
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Print to command `exec grim -g "$(slurp)" - | wl-copy` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 39: bindsym Mod4+Return exec $(/nix/store/6x4l1sa510zh5mkm61q2hzdz0jqfq34q-config/sway/scripts/open-terminal-cd.bash)
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Return exec $(/nix/store/6x4l1sa510zh5mkm61q2hzdz0jqfq34q-config/sway/scripts/open-terminal-cd.bash)
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Return exec $(/nix/store/6x4l1sa510zh5mkm61q2hzdz0jqfq34q-config/sway/scripts/open-terminal-cd.bash)
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Return to command `exec $(/nix/store/6x4l1sa510zh5mkm61q2hzdz0jqfq34q-config/sway/scripts/open-terminal-cd.bash)` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 40: bindsym Mod4+Right focus right
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Right focus right
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Right focus right
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Right to command `focus right` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 41: bindsym Mod4+Shift+0 move container to workspace number 10
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+0 move container to workspace number 10
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+0 move container to workspace number 10
+00:00:00.085 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+0 to command `move container to workspace number 10` for device '*'
+00:00:00.085 [DEBUG] [sway/config.c:819] Read line 42: bindsym Mod4+Shift+1 move container to workspace number 1
+00:00:00.085 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+1 move container to workspace number 1
+00:00:00.085 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+1 move container to workspace number 1
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+1 to command `move container to workspace number 1` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 43: bindsym Mod4+Shift+2 move container to workspace number 2
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+2 move container to workspace number 2
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+2 move container to workspace number 2
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+2 to command `move container to workspace number 2` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 44: bindsym Mod4+Shift+3 move container to workspace number 3
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+3 move container to workspace number 3
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+3 move container to workspace number 3
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+3 to command `move container to workspace number 3` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 45: bindsym Mod4+Shift+4 move container to workspace number 4
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+4 move container to workspace number 4
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+4 move container to workspace number 4
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+4 to command `move container to workspace number 4` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 46: bindsym Mod4+Shift+5 move container to workspace number 5
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+5 move container to workspace number 5
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+5 move container to workspace number 5
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+5 to command `move container to workspace number 5` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 47: bindsym Mod4+Shift+6 move container to workspace number 6
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+6 move container to workspace number 6
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+6 move container to workspace number 6
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+6 to command `move container to workspace number 6` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 48: bindsym Mod4+Shift+7 move container to workspace number 7
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+7 move container to workspace number 7
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+7 move container to workspace number 7
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+7 to command `move container to workspace number 7` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 49: bindsym Mod4+Shift+8 move container to workspace number 8
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+8 move container to workspace number 8
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+8 move container to workspace number 8
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+8 to command `move container to workspace number 8` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 50: bindsym Mod4+Shift+9 move container to workspace number 9
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+9 move container to workspace number 9
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+9 move container to workspace number 9
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+9 to command `move container to workspace number 9` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 51: bindsym Mod4+Shift+Down move down
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+Down move down
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+Down move down
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+Down to command `move down` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 52: bindsym Mod4+Shift+Left move left
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+Left move left
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+Left move left
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+Left to command `move left` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 53: bindsym Mod4+Shift+Right move right
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+Right move right
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+Right move right
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+Right to command `move right` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 54: bindsym Mod4+Shift+Space floating toggle
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+Space floating toggle
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+Space floating toggle
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+Space to command `floating toggle` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 55: bindsym Mod4+Shift+Up move up
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+Up move up
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+Up move up
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+Up to command `move up` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 56: bindsym Mod4+Shift+h move left
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+h move left
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+h move left
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+h to command `move left` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 57: bindsym Mod4+Shift+j move down
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+j move down
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+j move down
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+j to command `move down` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 58: bindsym Mod4+Shift+k move up
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+k move up
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+k move up
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+k to command `move up` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 59: bindsym Mod4+Shift+l move right
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+l move right
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+l move right
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+l to command `move right` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 60: bindsym Mod4+Shift+q kill
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Shift+q kill
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Shift+q kill
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Shift+q to command `kill` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 61: bindsym Mod4+Space focus_mode toggle
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Space focus_mode toggle
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Space focus_mode toggle
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Space to command `focus_mode toggle` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 62: bindsym Mod4+Up focus up
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+Up focus up
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+Up focus up
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+Up to command `focus up` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 63: bindsym Mod4+b splith
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+b splith
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+b splith
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+b to command `splith` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 64: bindsym Mod4+d exec dmenu_path | wofi -i --show run --gtk-dark | xargs swaymsg exec --
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+d exec dmenu_path | wofi -i --show run --gtk-dark | xargs swaymsg exec --
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+d exec dmenu_path | wofi -i --show run --gtk-dark | xargs swaymsg exec --
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+d to command `exec dmenu_path | wofi -i --show run --gtk-dark | xargs swaymsg exec --` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 65: bindsym Mod4+f fullscreen toggle
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+f fullscreen toggle
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+f fullscreen toggle
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+f to command `fullscreen toggle` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 66: bindsym Mod4+h focus left
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+h focus left
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+h focus left
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+h to command `focus left` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 67: bindsym Mod4+j focus down
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+j focus down
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+j focus down
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+j to command `focus down` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 68: bindsym Mod4+k focus up
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+k focus up
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+k focus up
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+k to command `focus up` for device '*'
+00:00:00.086 [DEBUG] [sway/config.c:819] Read line 69: bindsym Mod4+l focus right
+00:00:00.086 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+l focus right
+00:00:00.086 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+l focus right
+00:00:00.086 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+l to command `focus right` for device '*'
+00:00:00.087 [DEBUG] [sway/config.c:819] Read line 70: bindsym Mod4+n exec flashfocus
+00:00:00.087 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+n exec flashfocus
+00:00:00.087 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+n exec flashfocus
+00:00:00.087 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+n to command `exec flashfocus` for device '*'
+00:00:00.087 [DEBUG] [sway/config.c:819] Read line 71: bindsym Mod4+v splitv
+00:00:00.087 [INFO] [sway/commands.c:377] Config command: bindsym Mod4+v splitv
+00:00:00.087 [INFO] [sway/commands.c:397] After replacement: bindsym Mod4+v splitv
+00:00:00.087 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Mod4+v to command `splitv` for device '*'
+00:00:00.087 [DEBUG] [sway/config.c:819] Read line 72: bindsym Print exec grim - | wl-copy
+00:00:00.087 [INFO] [sway/commands.c:377] Config command: bindsym Print exec grim - | wl-copy
+00:00:00.087 [INFO] [sway/commands.c:397] After replacement: bindsym Print exec grim - | wl-copy
+00:00:00.087 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Print to command `exec grim - | wl-copy` for device '*'
+00:00:00.087 [DEBUG] [sway/config.c:819] Read line 73: bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe
+00:00:00.087 [INFO] [sway/commands.c:377] Config command: bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe
+00:00:00.087 [INFO] [sway/commands.c:397] After replacement: bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe
+00:00:00.087 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound XF86AudioLowerVolume to command `exec amixer -q set Master 5%- unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe` for device '*'
+00:00:00.087 [DEBUG] [sway/config.c:819] Read line 74: bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe
+00:00:00.087 [INFO] [sway/commands.c:377] Config command: bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe
+00:00:00.087 [INFO] [sway/commands.c:397] After replacement: bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe
+00:00:00.087 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound XF86AudioRaiseVolume to command `exec amixer -q set Master 5%+ unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe` for device '*'
+00:00:00.087 [DEBUG] [sway/config.c:819] Read line 75: 
+00:00:00.087 [DEBUG] [sway/config.c:819] Read line 76: input "*" {
+00:00:00.087 [DEBUG] [sway/config.c:873] Entering block 'input "*"'
+00:00:00.087 [DEBUG] [sway/config.c:819] Read line 77: xkb_layout gb
+00:00:00.087 [INFO] [sway/commands.c:377] Config command: input "*" xkb_layout gb
+00:00:00.087 [INFO] [sway/commands.c:397] After replacement: input "*" xkb_layout gb
+00:00:00.087 [DEBUG] [sway/commands/input.c:54] entering input block: *
+00:00:00.087 [DEBUG] [sway/config/input.c:15] new_input_config(*)
+00:00:00.087 [DEBUG] [sway/commands.c:428] Subcommand: xkb_layout gb
+00:00:00.087 [DEBUG] [sway/commands/input/xkb_layout.c:18] set-xkb_layout for config: * layout: gb
+00:00:00.087 [DEBUG] [sway/config/input.c:15] new_input_config(temp)
+00:00:00.090 [DEBUG] [sway/config/input.c:350] Config stored for input *
+00:00:00.092 [DEBUG] [sway/config.c:1070] Translated keysyms using config for device '*'
+00:00:00.092 [DEBUG] [sway/config.c:819] Read line 78: }
+00:00:00.093 [DEBUG] [sway/config.c:890] Exiting block 'input "*"'
+00:00:00.093 [DEBUG] [sway/config.c:819] Read line 79: 
+00:00:00.093 [DEBUG] [sway/config.c:819] Read line 80: output "*" {
+00:00:00.093 [DEBUG] [sway/config.c:873] Entering block 'output "*"'
+00:00:00.093 [DEBUG] [sway/config.c:819] Read line 81: bg /nix/store/6x4l1sa510zh5mkm61q2hzdz0jqfq34q-config/sway/backgrounds/gruvbox-dark-rainbow.png fill
+00:00:00.093 [INFO] [sway/commands.c:377] Config command: output "*" bg /nix/store/6x4l1sa510zh5mkm61q2hzdz0jqfq34q-config/sway/backgrounds/gruvbox-dark-rainbow.png fill
+00:00:00.093 [INFO] [sway/commands.c:397] After replacement: output "*" bg /nix/store/6x4l1sa510zh5mkm61q2hzdz0jqfq34q-config/sway/backgrounds/gruvbox-dark-rainbow.png fill
+00:00:00.093 [DEBUG] [sway/commands.c:428] Subcommand: bg /nix/store/6x4l1sa510zh5mkm61q2hzdz0jqfq34q-config/sway/backgrounds/gruvbox-dark-rainbow.png fill
+00:00:00.093 [DEBUG] [sway/config/output.c:223] Adding output * config
+00:00:00.093 [DEBUG] [sway/config/output.c:227] Config stored for output * (enabled: -1) (-1x-1@-1.000000Hz position -1,-1 scale -1.000000 subpixel unknown transform -1) (bg /nix/store/6x4l1sa510zh5mkm61q2hzdz0jqfq34q-config/sway/backgrounds/gruvbox-dark-rainbow.png fill) (dpms 0) (max render time: -1)
+00:00:00.093 [DEBUG] [sway/config/output.c:794] spawn_swaybg cmd[0] = /nix/store/advynlbas4a1j3v3xalw9j6g1bal0xl9-swaybg-1.0/bin/swaybg
+00:00:00.093 [DEBUG] [sway/config/output.c:794] spawn_swaybg cmd[1] = -o
+00:00:00.093 [DEBUG] [sway/config/output.c:794] spawn_swaybg cmd[2] = *
+00:00:00.093 [DEBUG] [sway/config/output.c:794] spawn_swaybg cmd[3] = -i
+00:00:00.093 [DEBUG] [sway/config/output.c:794] spawn_swaybg cmd[4] = /nix/store/6x4l1sa510zh5mkm61q2hzdz0jqfq34q-config/sway/backgrounds/gruvbox-dark-rainbow.png
+00:00:00.093 [DEBUG] [sway/config/output.c:794] spawn_swaybg cmd[5] = -m
+00:00:00.093 [DEBUG] [sway/config/output.c:794] spawn_swaybg cmd[6] = fill
+00:00:00.095 [DEBUG] [sway/config.c:819] Read line 82: }
+00:00:00.095 [DEBUG] [sway/config.c:890] Exiting block 'output "*"'
+00:00:00.095 [DEBUG] [sway/config.c:819] Read line 83: 
+00:00:00.095 [DEBUG] [sway/config.c:819] Read line 84: mode "resize" {
+00:00:00.095 [DEBUG] [sway/config.c:873] Entering block 'mode "resize"'
+00:00:00.095 [DEBUG] [sway/config.c:819] Read line 85: bindsym Down resize grow height 10 px
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: mode "resize" bindsym Down resize grow height 10 px
+00:00:00.096 [INFO] [sway/commands.c:397] After replacement: mode "resize" bindsym Down resize grow height 10 px
+00:00:00.096 [DEBUG] [sway/commands.c:428] Subcommand: bindsym Down resize grow height 10 px
+00:00:00.096 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Down to command `resize grow height 10 px` for device '*'
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 86: bindsym Escape mode default
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: mode "resize" bindsym Escape mode default
+00:00:00.096 [INFO] [sway/commands.c:397] After replacement: mode "resize" bindsym Escape mode default
+00:00:00.096 [DEBUG] [sway/commands.c:428] Subcommand: bindsym Escape mode default
+00:00:00.096 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Escape to command `mode default` for device '*'
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 87: bindsym Left resize shrink width 10 px
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: mode "resize" bindsym Left resize shrink width 10 px
+00:00:00.096 [INFO] [sway/commands.c:397] After replacement: mode "resize" bindsym Left resize shrink width 10 px
+00:00:00.096 [DEBUG] [sway/commands.c:428] Subcommand: bindsym Left resize shrink width 10 px
+00:00:00.096 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Left to command `resize shrink width 10 px` for device '*'
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 88: bindsym Return mode default
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: mode "resize" bindsym Return mode default
+00:00:00.096 [INFO] [sway/commands.c:397] After replacement: mode "resize" bindsym Return mode default
+00:00:00.096 [DEBUG] [sway/commands.c:428] Subcommand: bindsym Return mode default
+00:00:00.096 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Return to command `mode default` for device '*'
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 89: bindsym Right resize grow width 10 px
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: mode "resize" bindsym Right resize grow width 10 px
+00:00:00.096 [INFO] [sway/commands.c:397] After replacement: mode "resize" bindsym Right resize grow width 10 px
+00:00:00.096 [DEBUG] [sway/commands.c:428] Subcommand: bindsym Right resize grow width 10 px
+00:00:00.096 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Right to command `resize grow width 10 px` for device '*'
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 90: bindsym Up resize shrink height 10 px
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: mode "resize" bindsym Up resize shrink height 10 px
+00:00:00.096 [INFO] [sway/commands.c:397] After replacement: mode "resize" bindsym Up resize shrink height 10 px
+00:00:00.096 [DEBUG] [sway/commands.c:428] Subcommand: bindsym Up resize shrink height 10 px
+00:00:00.096 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound Up to command `resize shrink height 10 px` for device '*'
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 91: bindsym h resize shrink width 10 px
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: mode "resize" bindsym h resize shrink width 10 px
+00:00:00.096 [INFO] [sway/commands.c:397] After replacement: mode "resize" bindsym h resize shrink width 10 px
+00:00:00.096 [DEBUG] [sway/commands.c:428] Subcommand: bindsym h resize shrink width 10 px
+00:00:00.096 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound h to command `resize shrink width 10 px` for device '*'
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 92: bindsym j resize grow height 10 px
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: mode "resize" bindsym j resize grow height 10 px
+00:00:00.096 [INFO] [sway/commands.c:397] After replacement: mode "resize" bindsym j resize grow height 10 px
+00:00:00.096 [DEBUG] [sway/commands.c:428] Subcommand: bindsym j resize grow height 10 px
+00:00:00.096 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound j to command `resize grow height 10 px` for device '*'
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 93: bindsym k resize shrink height 10 px
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: mode "resize" bindsym k resize shrink height 10 px
+00:00:00.096 [INFO] [sway/commands.c:397] After replacement: mode "resize" bindsym k resize shrink height 10 px
+00:00:00.096 [DEBUG] [sway/commands.c:428] Subcommand: bindsym k resize shrink height 10 px
+00:00:00.096 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound k to command `resize shrink height 10 px` for device '*'
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 94: bindsym l resize grow width 10 px
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: mode "resize" bindsym l resize grow width 10 px
+00:00:00.096 [INFO] [sway/commands.c:397] After replacement: mode "resize" bindsym l resize grow width 10 px
+00:00:00.096 [DEBUG] [sway/commands.c:428] Subcommand: bindsym l resize grow width 10 px
+00:00:00.096 [DEBUG] [sway/commands/bind.c:298] bindsym - Bound l to command `resize grow width 10 px` for device '*'
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 95: }
+00:00:00.096 [DEBUG] [sway/config.c:890] Exiting block 'mode "resize"'
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 96: 
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 97: bar {
+00:00:00.096 [DEBUG] [sway/config.c:873] Entering block 'bar'
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 98:   
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 99:   font pango:monospace 8.000000
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: bar font pango:monospace 8.000000
+00:00:00.096 [INFO] [sway/commands.c:397] After replacement: bar font pango:monospace 8.000000
+00:00:00.096 [DEBUG] [sway/commands/bar.c:93] Creating bar: bar-0
+00:00:00.096 [DEBUG] [sway/commands.c:428] Subcommand: font pango:monospace 8.000000
+00:00:00.096 [DEBUG] [sway/commands/bar/font.c:15] Settings font 'pango:monospace 8.000000' for bar: bar-0
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 100:   mode dock
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: bar mode dock
+00:00:00.096 [INFO] [sway/commands.c:397] After replacement: bar mode dock
+00:00:00.096 [DEBUG] [sway/commands.c:428] Subcommand: mode dock
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 101:   hidden_state hide
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: bar hidden_state hide
+00:00:00.096 [INFO] [sway/commands.c:397] After replacement: bar hidden_state hide
+00:00:00.096 [DEBUG] [sway/commands.c:428] Subcommand: hidden_state hide
+00:00:00.096 [DEBUG] [sway/config.c:819] Read line 102:   position bottom
+00:00:00.096 [INFO] [sway/commands.c:377] Config command: bar position bottom
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar position bottom
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: position bottom
+00:00:00.097 [DEBUG] [sway/commands/bar/position.c:15] Setting bar position 'bottom' for bar: bar-0
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 103:   status_command /nix/store/pgcpz9s4jcxk3cpv24iaglhmpyvgq2vf-i3status-2.13/bin/i3status
+00:00:00.097 [INFO] [sway/commands.c:377] Config command: bar status_command /nix/store/pgcpz9s4jcxk3cpv24iaglhmpyvgq2vf-i3status-2.13/bin/i3status
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar status_command /nix/store/pgcpz9s4jcxk3cpv24iaglhmpyvgq2vf-i3status-2.13/bin/i3status
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: status_command /nix/store/pgcpz9s4jcxk3cpv24iaglhmpyvgq2vf-i3status-2.13/bin/i3status
+00:00:00.097 [DEBUG] [sway/commands/bar/status_command.c:17] Feeding bar with status command: /nix/store/pgcpz9s4jcxk3cpv24iaglhmpyvgq2vf-i3status-2.13/bin/i3status
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 104:   swaybar_command /nix/store/3sm4ckxvyf3wvqm695wxhdajcc8vhwpg-sway-1.6.1/bin/swaybar
+00:00:00.097 [INFO] [sway/commands.c:377] Config command: bar swaybar_command /nix/store/3sm4ckxvyf3wvqm695wxhdajcc8vhwpg-sway-1.6.1/bin/swaybar
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar swaybar_command /nix/store/3sm4ckxvyf3wvqm695wxhdajcc8vhwpg-sway-1.6.1/bin/swaybar
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: swaybar_command /nix/store/3sm4ckxvyf3wvqm695wxhdajcc8vhwpg-sway-1.6.1/bin/swaybar
+00:00:00.097 [DEBUG] [sway/commands/bar/swaybar_command.c:13] Using custom swaybar command: /nix/store/3sm4ckxvyf3wvqm695wxhdajcc8vhwpg-sway-1.6.1/bin/swaybar
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 105:   workspace_buttons yes
+00:00:00.097 [INFO] [sway/commands.c:377] Config command: bar workspace_buttons yes
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar workspace_buttons yes
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: workspace_buttons yes
+00:00:00.097 [DEBUG] [sway/commands/bar/workspace_buttons.c:15] Enabling workspace buttons on bar: bar-0
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 106:   strip_workspace_numbers no
+00:00:00.097 [INFO] [sway/commands.c:377] Config command: bar strip_workspace_numbers no
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar strip_workspace_numbers no
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: strip_workspace_numbers no
+00:00:00.097 [DEBUG] [sway/commands/bar/strip_workspace_numbers.c:23] Enabling workspace numbers on bar: bar-0
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 107:   tray_output primary
+00:00:00.097 [INFO] [sway/commands.c:377] Config command: bar tray_output primary
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar tray_output primary
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: tray_output primary
+00:00:00.097 [DEBUG] [sway/commands/bar/tray_output.c:36] Showing tray on output 'primary' for bar: bar-0
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 108:   colors {
+00:00:00.097 [DEBUG] [sway/config.c:873] Entering block 'bar colors'
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 109:     background #000000
+00:00:00.097 [INFO] [sway/commands.c:377] Config command: bar colors background #000000
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar colors background #000000
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: colors background #000000
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: background #000000
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 110:     statusline #ffffff
+00:00:00.097 [INFO] [sway/commands.c:377] Config command: bar colors statusline #ffffff
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar colors statusline #ffffff
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: colors statusline #ffffff
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: statusline #ffffff
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 111:     separator #666666
+00:00:00.097 [INFO] [sway/commands.c:377] Config command: bar colors separator #666666
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar colors separator #666666
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: colors separator #666666
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: separator #666666
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 112:     focused_workspace #4c7899 #285577 #ffffff
+00:00:00.097 [INFO] [sway/commands.c:377] Config command: bar colors focused_workspace #4c7899 #285577 #ffffff
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar colors focused_workspace #4c7899 #285577 #ffffff
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: colors focused_workspace #4c7899 #285577 #ffffff
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: focused_workspace #4c7899 #285577 #ffffff
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 113:     active_workspace #333333 #5f676a #ffffff
+00:00:00.097 [INFO] [sway/commands.c:377] Config command: bar colors active_workspace #333333 #5f676a #ffffff
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar colors active_workspace #333333 #5f676a #ffffff
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: colors active_workspace #333333 #5f676a #ffffff
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: active_workspace #333333 #5f676a #ffffff
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 114:     inactive_workspace #333333 #222222 #888888
+00:00:00.097 [INFO] [sway/commands.c:377] Config command: bar colors inactive_workspace #333333 #222222 #888888
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar colors inactive_workspace #333333 #222222 #888888
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: colors inactive_workspace #333333 #222222 #888888
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: inactive_workspace #333333 #222222 #888888
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 115:     urgent_workspace #2f343a #900000 #ffffff
+00:00:00.097 [INFO] [sway/commands.c:377] Config command: bar colors urgent_workspace #2f343a #900000 #ffffff
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar colors urgent_workspace #2f343a #900000 #ffffff
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: colors urgent_workspace #2f343a #900000 #ffffff
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: urgent_workspace #2f343a #900000 #ffffff
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 116:     binding_mode #2f343a #900000 #ffffff
+00:00:00.097 [INFO] [sway/commands.c:377] Config command: bar colors binding_mode #2f343a #900000 #ffffff
+00:00:00.097 [INFO] [sway/commands.c:397] After replacement: bar colors binding_mode #2f343a #900000 #ffffff
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: colors binding_mode #2f343a #900000 #ffffff
+00:00:00.097 [DEBUG] [sway/commands.c:428] Subcommand: binding_mode #2f343a #900000 #ffffff
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 117:   }
+00:00:00.097 [DEBUG] [sway/config.c:890] Exiting block 'bar colors'
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 118:   
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 119: }
+00:00:00.097 [DEBUG] [sway/config.c:890] Exiting block 'bar'
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 120: 
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 121: 
+00:00:00.097 [DEBUG] [sway/config.c:819] Read line 122: exec "systemctl --user import-environment; systemctl --user start sway-session.target"
+00:00:00.098 [INFO] [sway/commands.c:377] Config command: exec "systemctl --user import-environment; systemctl --user start sway-session.target"
+00:00:00.098 [INFO] [sway/commands.c:397] After replacement: exec "systemctl --user import-environment; systemctl --user start sway-session.target"
+00:00:00.098 [DEBUG] [sway/config.c:863] Deferring command `exec "systemctl --user import-environment; systemctl --user start sway-session.target"'
+00:00:00.098 [DEBUG] [sway/config.c:819] Read line 123: input "ELECOM TrackBall Mouse DEFT Pro TrackBall Mouse" {
+00:00:00.098 [DEBUG] [sway/config.c:873] Entering block 'input "ELECOM TrackBall Mouse DEFT Pro TrackBall Mouse"'
+00:00:00.098 [DEBUG] [sway/config.c:819] Read line 124: pointer_accel 1
+00:00:00.098 [INFO] [sway/commands.c:377] Config command: input "ELECOM TrackBall Mouse DEFT Pro TrackBall Mouse" pointer_accel 1
+00:00:00.098 [INFO] [sway/commands.c:397] After replacement: input "ELECOM TrackBall Mouse DEFT Pro TrackBall Mouse" pointer_accel 1
+00:00:00.098 [DEBUG] [sway/commands/input.c:54] entering input block: ELECOM TrackBall Mouse DEFT Pro TrackBall Mouse
+00:00:00.098 [DEBUG] [sway/config/input.c:15] new_input_config(ELECOM TrackBall Mouse DEFT Pro TrackBall Mouse)
+00:00:00.098 [DEBUG] [sway/commands.c:428] Subcommand: pointer_accel 1
+00:00:00.098 [DEBUG] [sway/config/input.c:15] new_input_config(ELECOM TrackBall Mouse DEFT Pro TrackBall Mouse)
+00:00:00.098 [DEBUG] [sway/config/input.c:15] new_input_config(temp)
+00:00:00.102 [DEBUG] [sway/config/input.c:350] Config stored for input ELECOM TrackBall Mouse DEFT Pro TrackBall Mouse
+00:00:00.102 [DEBUG] [sway/config.c:819] Read line 125: }
+00:00:00.102 [DEBUG] [sway/config.c:890] Exiting block 'input "ELECOM TrackBall Mouse DEFT Pro TrackBall Mouse"'
+00:00:00.102 [DEBUG] [sway/config.c:819] Read line 126: gaps inner 10
+00:00:00.102 [INFO] [sway/commands.c:377] Config command: gaps inner 10
+00:00:00.102 [INFO] [sway/commands.c:397] After replacement: gaps inner 10
+00:00:00.102 [DEBUG] [sway/config.c:819] Read line 127: gaps outer 5
+00:00:00.102 [INFO] [sway/commands.c:377] Config command: gaps outer 5
+00:00:00.102 [INFO] [sway/commands.c:397] After replacement: gaps outer 5
+00:00:00.102 [DEBUG] [sway/config.c:819] Read line 128: default_border pixel 2
+00:00:00.102 [INFO] [sway/commands.c:377] Config command: default_border pixel 2
+00:00:00.102 [INFO] [sway/commands.c:397] After replacement: default_border pixel 2
+00:00:00.102 [DEBUG] [sway/config.c:819] Read line 129: 
+00:00:00.102 [DEBUG] [sway/config.c:819] Read line 130: exec makoctl reload
+00:00:00.102 [INFO] [sway/commands.c:377] Config command: exec makoctl reload
+00:00:00.102 [INFO] [sway/commands.c:397] After replacement: exec makoctl reload
+00:00:00.102 [DEBUG] [sway/config.c:863] Deferring command `exec makoctl reload'
+00:00:00.102 [DEBUG] [sway/config.c:819] Read line 131: exec mkfifo /tmp/wobpipe
+00:00:00.102 [INFO] [sway/commands.c:377] Config command: exec mkfifo /tmp/wobpipe
+00:00:00.103 [INFO] [sway/commands.c:397] After replacement: exec mkfifo /tmp/wobpipe
+00:00:00.103 [DEBUG] [sway/config.c:863] Deferring command `exec mkfifo /tmp/wobpipe'
+00:00:00.103 [DEBUG] [sway/config.c:819] Read line 132: exec 'tail -f /tmp/wobpipe | wob -a top -a right --padding 0 --margin 10 --border 0 --height 25 --width 200 --bar-color "#FF2A2A2A"'
+00:00:00.103 [INFO] [sway/commands.c:377] Config command: exec 'tail -f /tmp/wobpipe | wob -a top -a right --padding 0 --margin 10 --border 0 --height 25 --width 200 --bar-color "#FF2A2A2A"'
+00:00:00.103 [INFO] [sway/commands.c:397] After replacement: exec 'tail -f /tmp/wobpipe | wob -a top -a right --padding 0 --margin 10 --border 0 --height 25 --width 200 --bar-color "#FF2A2A2A"'
+00:00:00.103 [DEBUG] [sway/config.c:863] Deferring command `exec 'tail -f /tmp/wobpipe | wob -a top -a right --padding 0 --margin 10 --border 0 --height 25 --width 200 --bar-color "#FF2A2A2A"''
+00:00:00.103 [DEBUG] [sway/config.c:819] Read line 133: 
+00:00:00.103 [DEBUG] [sway/config.c:819] Read line 134: exec /etc/nixos/home-manager/config/sway/scripts/swayidle.bash
+00:00:00.103 [INFO] [sway/commands.c:377] Config command: exec /etc/nixos/home-manager/config/sway/scripts/swayidle.bash
+00:00:00.103 [INFO] [sway/commands.c:397] After replacement: exec /etc/nixos/home-manager/config/sway/scripts/swayidle.bash
+00:00:00.103 [DEBUG] [sway/config.c:863] Deferring command `exec /etc/nixos/home-manager/config/sway/scripts/swayidle.bash'
+00:00:00.103 [DEBUG] [sway/config.c:819] Read line 135: #exec swayidle -w \
+00:00:00.103 [DEBUG] [sway/config.c:819] Read line 136: #         timeout 30 'swaylock -f -c 000000' \
+00:00:00.103 [DEBUG] [sway/config.c:819] Read line 137: #         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+00:00:00.103 [DEBUG] [sway/config.c:819] Read line 138: #         before-sleep 'swaylock -f -c 000000'
+00:00:00.103 [DEBUG] [sway/server.c:218] Initializing Xwayland (lazy=1)
+00:00:00.103 [ERROR] [wlr] [xwayland/sockets.c:63] Failed to bind socket @/tmp/.X11-unix/X0: Address already in use
+00:00:00.103 [INFO] [sway/server.c:241] Starting backend on wayland display 'wayland-2'
+00:00:00.103 [INFO] [wlr] [backend/wayland/backend.c:270] Initializating wayland backend
+00:00:00.103 [DEBUG] [sway/input/input-manager.c:234] adding device: '0:0:wayland-seat0'
+00:00:00.103 [DEBUG] [sway/input/input-manager.c:184] no fallback seat config - creating default
+00:00:00.103 [DEBUG] [sway/config/seat.c:66] Adding non-wildcard seat config
+00:00:00.103 [DEBUG] [sway/config/seat.c:83] Config stored for seat seat0
+00:00:00.103 [DEBUG] [sway/input/input-manager.c:585] applying seat config for seat seat0
+00:00:00.103 [DEBUG] [sway/input/seat.c:930] adding device 0:0:wayland-seat0 to seat seat0
+00:00:00.109 [DEBUG] [sway/input/keyboard.c:937] Created keyboard group 0x1adc5e0
+00:00:00.109 [DEBUG] [sway/input/keyboard.c:960] Adding keyboard 0:0:wayland-seat0 to group 0x1adc5e0
+00:00:00.117 [DEBUG] [sway/desktop/output.c:880] New output 0x1ad1750: WL-1
+00:00:00.117 [DEBUG] [sway/config/output.c:351] Turning on output WL-1
+00:00:00.117 [DEBUG] [sway/config/output.c:382] Auto-detected output scale: 1.000000
+00:00:00.117 [DEBUG] [sway/config/output.c:412] Committing output WL-1
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:283] Workspace: Generating new workspace name for output WL-1
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'prev'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'next'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'prev'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'next'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'number 10'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:245] Isolated name from workspace number: '10'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:274] Workspace: Found free name 10
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'number 1'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:245] Isolated name from workspace number: '1'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'number 2'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:245] Isolated name from workspace number: '2'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'number 3'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:245] Isolated name from workspace number: '3'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'number 4'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:245] Isolated name from workspace number: '4'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'number 5'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:245] Isolated name from workspace number: '5'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'number 6'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:245] Isolated name from workspace number: '6'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'number 7'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:245] Isolated name from workspace number: '7'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'number 8'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:245] Isolated name from workspace number: '8'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:218] Got valid workspace command for target: 'number 9'
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:245] Isolated name from workspace number: '9'
+00:00:00.117 [DEBUG] [sway/tree/output.c:127] Creating default workspace 10
+00:00:00.117 [DEBUG] [sway/tree/workspace.c:63] Adding workspace 10 for output WL-1
+00:00:00.118 [DEBUG] [wlr] [xcursor/wlr_xcursor.c:243] Loaded cursor theme 'default' at size 24 (13 available cursors)
+00:00:00.118 [DEBUG] [wlr] [xcursor/wlr_xcursor.c:243] Loaded cursor theme 'default' at size 24 (13 available cursors)
+00:00:00.118 [DEBUG] [sway/desktop/layer_shell.c:197] Usable area changed, rearranging output
+00:00:00.118 [DEBUG] [sway/tree/arrange.c:263] Usable area for ws: 1280x720@0,0
+00:00:00.118 [DEBUG] [sway/tree/arrange.c:293] Arranging workspace '10' at 15.000000, 15.000000
+00:00:00.118 [DEBUG] [sway/tree/arrange.c:263] Usable area for ws: 1280x720@0,0
+00:00:00.118 [DEBUG] [sway/tree/arrange.c:293] Arranging workspace '10' at 15.000000, 15.000000
+00:00:00.124 [DEBUG] [sway/desktop/transaction.c:398] Transaction 0x1aa4a10 committing with 2 instructions
+00:00:00.124 [DEBUG] [sway/desktop/transaction.c:294] Applying transaction 0x1aa4a10
+00:00:00.124 [DEBUG] [sway/input/input-manager.c:234] adding device: '0:0:wayland-seat0'
+00:00:00.124 [DEBUG] [sway/input/seat.c:930] adding device 0:0:wayland-seat0 to seat seat0
+00:00:00.124 [DEBUG] [sway/input/seat.c:709] Applying input config to 0:0:wayland-seat0
+00:00:00.124 [DEBUG] [sway/input/seat.c:739] Mapping input device 0:0:wayland-seat0 to output WL-1
+00:00:00.124 [DEBUG] [sway/input/seat.c:759] Mapped to output WL-1
+00:00:00.127 [DEBUG] [wlr] [render/swapchain.c:105] Allocating new swapchain buffer
+00:00:00.127 [DEBUG] [wlr] [render/gbm_allocator.c:127] Allocated 10x16 GBM buffer (format 0x34325241, modifier 0x100000000000004)
+00:00:00.127 [DEBUG] [wlr] [render/gles2/renderer.c:136] Created GL FBO for buffer 10x16
+00:00:00.128 [INFO] [wlr] [backend/headless/backend.c:28] Starting headless backend
+00:00:00.128 [DEBUG] [sway/config/bar.c:263] Invoking swaybar for bar id 'bar-0'
+00:00:00.132 [DEBUG] [sway/config/bar.c:255] Spawned swaybar bar-0
+00:00:00.132 [DEBUG] [sway/config.c:668] Running deferred commands
+00:00:00.132 [INFO] [sway/commands.c:257] Handling command 'exec "systemctl --user import-environment; systemctl --user start sway-session.target"'
+00:00:00.132 [DEBUG] [sway/commands/exec_always.c:50] Executing systemctl --user import-environment; systemctl --user start sway-session.target
+00:00:00.136 [DEBUG] [sway/commands/exec_always.c:91] Child process created with pid 45210
+00:00:00.136 [DEBUG] [sway/tree/root.c:299] Recording workspace for process 45210
+00:00:00.136 [INFO] [sway/commands.c:257] Handling command 'exec makoctl reload'
+00:00:00.136 [DEBUG] [sway/commands/exec_always.c:50] Executing makoctl reload
+00:00:00.140 [DEBUG] [sway/commands/exec_always.c:91] Child process created with pid 45212
+00:00:00.140 [DEBUG] [sway/tree/root.c:299] Recording workspace for process 45212
+00:00:00.140 [INFO] [sway/commands.c:257] Handling command 'exec mkfifo /tmp/wobpipe'
+00:00:00.140 [DEBUG] [sway/commands/exec_always.c:50] Executing mkfifo /tmp/wobpipe
+00:00:00.146 [DEBUG] [sway/commands/exec_always.c:91] Child process created with pid 45215
+00:00:00.146 [DEBUG] [sway/tree/root.c:299] Recording workspace for process 45215
+00:00:00.146 [INFO] [sway/commands.c:257] Handling command 'exec 'tail -f /tmp/wobpipe | wob -a top -a right --padding 0 --margin 10 --border 0 --height 25 --width 200 --bar-color "#FF2A2A2A"''
+00:00:00.146 [DEBUG] [sway/commands/exec_always.c:50] Executing tail -f /tmp/wobpipe | wob -a top -a right --padding 0 --margin 10 --border 0 --height 25 --width 200 --bar-color "#FF2A2A2A"
+00:00:00.150 [DEBUG] [sway/commands/exec_always.c:91] Child process created with pid 45217
+00:00:00.150 [DEBUG] [sway/tree/root.c:299] Recording workspace for process 45217
+00:00:00.150 [INFO] [sway/commands.c:257] Handling command 'exec /etc/nixos/home-manager/config/sway/scripts/swayidle.bash'
+00:00:00.150 [DEBUG] [sway/commands/exec_always.c:50] Executing /etc/nixos/home-manager/config/sway/scripts/swayidle.bash
+mkfifo: cannot create fifo '/tmp/wobpipe': File exists
+00:00:00.158 [DEBUG] [sway/commands/exec_always.c:91] Child process created with pid 45220
+00:00:00.158 [DEBUG] [sway/tree/root.c:299] Recording workspace for process 45220
+00:00:00.158 [INFO] [sway/server.c:252] Running compositor on wayland display 'wayland-2'
+00:00:00.158 [DEBUG] [wlr] [types/wlr_output.c:505] Choosing primary buffer format 0x34325241 for output 'WL-1'
+00:00:00.158 [DEBUG] [wlr] [render/swapchain.c:105] Allocating new swapchain buffer
+00:00:00.160 [DEBUG] [wlr] [render/gbm_allocator.c:127] Allocated 1280x720 GBM buffer (format 0x34325241, modifier 0x100000000000004)
+00:00:00.160 [DEBUG] [wlr] [render/gles2/renderer.c:136] Created GL FBO for buffer 1280x720
+00:00:00.161 [DEBUG] [sway/ipc-server.c:153] Event on IPC listening socket
+00:00:00.161 [DEBUG] [sway/ipc-server.c:199] New client: fd 37
+00:00:00.161 [DEBUG] [sway/ipc-server.c:153] Event on IPC listening socket
+00:00:00.161 [DEBUG] [sway/ipc-server.c:199] New client: fd 41
+00:00:00.161 [DEBUG] [sway/ipc-server.c:219] Client 37 readable
+00:00:00.161 [DEBUG] [sway/ipc-server.c:958] Added IPC reply of type 0x6 to client 37 queue: { "id": "bar-0", "mode": "dock", "hidden_state": "hide", "position": "bottom", "status_command": "\/nix\/store\/pgcpz9s4jcxk3cpv24iaglhmpyvgq2vf-i3status-2.13\/bin\/i3status", "font": "pango:monospace 8.000000", "gaps": { "top": 0, "right": 0, "bottom": 0, "left": 0 }, "bar_height": 0, "status_padding": 1, "status_edge_padding": 3, "wrap_scroll": false, "workspace_buttons": true, "strip_workspace_numbers": false, "strip_workspace_name": false, "workspace_min_width": 0, "binding_mode_indicator": true, "verbose": false, "pango_markup": false, "colors": { "background": "#000000ff", "statusline": "#ffffffff", "separator": "#666666ff", "focused_background": "#000000ff", "focused_statusline": "#ffffffff", "focused_separator": "#666666ff", "focused_workspace_border": "#4c7899ff", "focused_workspace_bg": "#285577ff", "focused_workspace_text": "#ffffffff", "inactive_workspace_border": "#333333ff", "inactive_workspace_bg": "#222222ff", "inactive_workspace_text": "#888888ff", "active_workspace_border": "#333333ff", "active_workspace_bg": "#5f676aff", "active_workspace_text": "#ffffffff", "urgent_workspace_border": "#2f343aff", "urgent_workspace_bg": "#900000ff", "urgent_workspace_text": "#ffffffff", "binding_mode_border": "#2f343aff", "binding_mode_bg": "#900000ff", "binding_mode_text": "#ffffffff" }, "tray_outputs": [ "primary" ], "tray_padding": 2 }
+00:00:00.161 [DEBUG] [sway/ipc-server.c:535] Client 37 writable
+00:00:00.161 [DEBUG] [sway/ipc-server.c:219] Client 41 readable
+00:00:00.161 [DEBUG] [sway/ipc-server.c:958] Added IPC reply of type 0x2 to client 41 queue: {"success": true}
+00:00:00.161 [DEBUG] [sway/ipc-server.c:535] Client 41 writable
+00:00:00.161 [DEBUG] [wlr] [types/wlr_surface.c:743] New wlr_surface 0x1b27ff0 (res 0x1ad5990)
+00:00:00.162 [DEBUG] [wlr] [types/wlr_layer_shell_v1.c:471] new layer_surface 0x1b095c0 (res 0x1add480)
+00:00:00.162 [DEBUG] [sway/desktop/layer_shell.c:598] new layer surface: namespace wob layer 3 anchor 9 size 200x25 margin 10,10,10,10,
+00:00:00.163 [DEBUG] [wlr] [render/swapchain.c:105] Allocating new swapchain buffer
+00:00:00.166 [DEBUG] [wlr] [render/gbm_allocator.c:127] Allocated 1280x720 GBM buffer (format 0x34325241, modifier 0x100000000000004)
+00:00:00.166 [DEBUG] [wlr] [render/gles2/renderer.c:136] Created GL FBO for buffer 1280x720
+00:00:00.166 [DEBUG] [sway/desktop/layer_shell.c:197] Usable area changed, rearranging output
+00:00:00.166 [DEBUG] [sway/tree/arrange.c:263] Usable area for ws: 659x715@0,0
+00:00:00.166 [DEBUG] [sway/tree/arrange.c:293] Arranging workspace '10' at 15.000000, 15.000000
+00:00:00.166 [DEBUG] [sway/tree/arrange.c:263] Usable area for ws: 659x715@0,0
+00:00:00.166 [DEBUG] [sway/tree/arrange.c:293] Arranging workspace '10' at 15.000000, 15.000000
+00:00:00.166 [DEBUG] [sway/desktop/transaction.c:398] Transaction 0x1adfd90 committing with 1 instructions
+00:00:00.166 [DEBUG] [sway/desktop/transaction.c:294] Applying transaction 0x1adfd90
+00:00:00.166 [DEBUG] [sway/tree/arrange.c:263] Usable area for ws: 659x715@0,0
+00:00:00.166 [DEBUG] [sway/tree/arrange.c:293] Arranging workspace '10' at 15.000000, 15.000000
+00:00:00.166 [DEBUG] [sway/desktop/transaction.c:398] Transaction 0x1b19450 committing with 1 instructions
+00:00:00.166 [DEBUG] [sway/desktop/transaction.c:294] Applying transaction 0x1b19450
+00:00:00.168 [DEBUG] [wlr] [types/wlr_output.c:505] Choosing primary buffer format 0x34325241 for output 'WL-1'
+00:00:00.168 [DEBUG] [wlr] [render/swapchain.c:105] Allocating new swapchain buffer
+00:00:00.169 [DEBUG] [wlr] [render/gbm_allocator.c:127] Allocated 659x715 GBM buffer (format 0x34325241, modifier 0x100000000000004)
+00:00:00.169 [DEBUG] [wlr] [render/gles2/renderer.c:136] Created GL FBO for buffer 659x715
+Got sleep lock: 11
+00:00:00.182 [DEBUG] [wlr] [render/swapchain.c:105] Allocating new swapchain buffer
+00:00:00.040 [INFO] [swaybar/tray/icon.c:348] Warning: no icon themes loaded
+00:00:00.184 [DEBUG] [wlr] [render/gbm_allocator.c:127] Allocated 659x715 GBM buffer (format 0x34325241, modifier 0x100000000000004)
+00:00:00.185 [DEBUG] [wlr] [render/gles2/renderer.c:136] Created GL FBO for buffer 659x715
+00:00:00.185 [DEBUG] [sway/ipc-server.c:219] Client 37 readable
+00:00:00.185 [DEBUG] [sway/ipc-server.c:958] Added IPC reply of type 0x1 to client 37 queue: [ { "id": 4, "type": "workspace", "orientation": "horizontal", "percent": null, "urgent": false, "marks": [ ], "layout": "splith", "border": "none", "current_border_width": 0, "rect": { "x": 15, "y": 15, "width": 629, "height": 685 }, "deco_rect": { "x": 0, "y": 0, "width": 0, "height": 0 }, "window_rect": { "x": 0, "y": 0, "width": 0, "height": 0 }, "geometry": { "x": 0, "y": 0, "width": 0, "height": 0 }, "name": "10", "window": null, "nodes": [ ], "floating_nodes": [ ], "focus": [ ], "fullscreen_mode": 1, "sticky": false, "num": 10, "output": "WL-1", "representation": null, "focused": true, "visible": true } ]
+00:00:00.185 [DEBUG] [sway/ipc-server.c:535] Client 37 writable
+00:00:00.042 [INFO] [swaybar/tray/host.c:24] Registering Status Notifier Item ':1.44/org/ayatana/NotificationItem/discord1'
+00:00:00.045 [ERROR] [swaybar/tray/item.c:127] :1.44/org/ayatana/NotificationItem/discord1 IconPixmap: No such property “IconPixmap”
+00:00:00.045 [ERROR] [swaybar/tray/item.c:127] :1.44/org/ayatana/NotificationItem/discord1 AttentionIconPixmap: No such property “AttentionIconPixmap”
+00:00:00.045 [ERROR] [swaybar/tray/item.c:127] :1.44/org/ayatana/NotificationItem/discord1 ItemIsMenu: No such property “ItemIsMenu”
+00:00:00.189 [DEBUG] [wlr] [types/wlr_surface.c:743] New wlr_surface 0x1b269a0 (res 0x1abe420)
+00:00:00.189 [DEBUG] [wlr] [types/wlr_layer_shell_v1.c:471] new layer_surface 0x1b198b0 (res 0x1adbb70)
+00:00:00.189 [DEBUG] [sway/desktop/layer_shell.c:598] new layer surface: namespace panel layer 1 anchor 14 size 0x19 margin 0,0,0,0,
+00:00:00.189 [DEBUG] [sway/desktop/layer_shell.c:197] Usable area changed, rearranging output
+00:00:00.189 [DEBUG] [sway/tree/arrange.c:263] Usable area for ws: 659x696@0,0
+00:00:00.189 [DEBUG] [sway/tree/arrange.c:293] Arranging workspace '10' at 15.000000, 15.000000
+00:00:00.189 [DEBUG] [sway/desktop/transaction.c:398] Transaction 0x1b0dd10 committing with 1 instructions
+00:00:00.189 [DEBUG] [sway/desktop/transaction.c:294] Applying transaction 0x1b0dd10
+00:00:00.189 [DEBUG] [wlr] [types/wlr_surface.c:743] New wlr_surface 0x1b26190 (res 0x1ae1c70)
+i3status: trying to auto-detect output_format setting
+i3status: auto-detected "i3bar"
+2021-07-28 19:42:44 - [main.c:299] Found config * for output WL-1 ((null))
+00:00:00.497 [DEBUG] [wlr] [types/wlr_surface.c:743] New wlr_surface 0x1b21a10 (res 0x1adf490)
+00:00:00.497 [DEBUG] [wlr] [types/wlr_layer_shell_v1.c:471] new layer_surface 0x1b22b70 (res 0x1aad3a0)
+00:00:00.497 [DEBUG] [sway/desktop/layer_shell.c:598] new layer surface: namespace wallpaper layer 0 anchor 15 size 0x0 margin 0,0,0,0,
+00:00:01.168 [DEBUG] [sway/desktop/layer_shell.c:351] Layer surface destroyed (wob)
+00:00:30.768 [DEBUG] [wlr] [types/wlr_surface.c:743] New wlr_surface 0x1b27ff0 (res 0x1adf130)
+00:00:30.768 [DEBUG] [wlr] [types/wlr_surface.c:743] New wlr_surface 0x1b22290 (res 0x1ade4d0)
+00:00:30.768 [DEBUG] [wlr] [types/wlr_layer_shell_v1.c:471] new layer_surface 0x1b09450 (res 0x1ac0350)
+00:00:30.768 [DEBUG] [sway/desktop/layer_shell.c:598] new layer surface: namespace lockscreen layer 3 anchor 15 size 0x0 margin 0,0,0,0,
+00:00:40.387 [DEBUG] [sway/desktop/layer_shell.c:351] Layer surface destroyed (lockscreen)
+00:00:40.387 [DEBUG] [sway/desktop/transaction.c:398] Transaction 0x1b0e970 committing with 2 instructions
+00:00:40.387 [DEBUG] [sway/desktop/transaction.c:294] Applying transaction 0x1b0e970
+00:00:40.388 [DEBUG] [wlr] [render/swapchain.c:105] Allocating new swapchain buffer
+00:00:40.388 [DEBUG] [wlr] [render/gbm_allocator.c:127] Allocated 10x16 GBM buffer (format 0x34325241, modifier 0x100000000000004)
+00:00:40.388 [DEBUG] [wlr] [render/gles2/renderer.c:136] Created GL FBO for buffer 10x16
+00:00:41.581 [DEBUG] [sway/tree/output.c:264] Disabling output 'WL-1'
+00:00:41.581 [DEBUG] [sway/tree/workspace.c:143] Destroying workspace '10'
+00:00:41.581 [DEBUG] [sway/ipc-server.c:306] Sending workspace::empty event
+00:00:41.581 [DEBUG] [sway/ipc-server.c:958] Added IPC reply of type 0x80000000 to client 41 queue: { "change": "empty", "old": null, "current": { "id": 4, "type": "workspace", "orientation": "horizontal", "percent": null, "urgent": false, "marks": [ ], "focused": true, "layout": "splith", "border": "none", "current_border_width": 0, "rect": { "x": 15, "y": 15, "width": 629, "height": 666 }, "deco_rect": { "x": 0, "y": 0, "width": 0, "height": 0 }, "window_rect": { "x": 0, "y": 0, "width": 0, "height": 0 }, "geometry": { "x": 0, "y": 0, "width": 0, "height": 0 }, "name": "10", "window": null, "nodes": [ ], "floating_nodes": [ ], "focus": [ ], "fullscreen_mode": 1, "sticky": false, "num": 10, "output": null, "representation": null } }
+00:00:41.581 [DEBUG] [sway/input/seat.c:709] Applying input config to 0:0:wayland-seat0
+00:00:41.581 [DEBUG] [sway/input/seat.c:739] Mapping input device 0:0:wayland-seat0 to output WL-1
+00:00:41.581 [DEBUG] [sway/input/seat.c:751] Requested output WL-1 for device 0:0:wayland-seat0 isn't present
+00:00:41.592 [DEBUG] [sway/desktop/transaction.c:398] Transaction 0x1b0e970 committing with 2 instructions
+00:00:41.592 [DEBUG] [sway/desktop/transaction.c:294] Applying transaction 0x1b0e970
+00:00:41.592 [DEBUG] [sway/tree/output.c:288] Destroying output 'WL-1'
+00:00:41.592 [DEBUG] [sway/desktop/transaction.c:398] Transaction 0x1ab7050 committing with 1 instructions
+00:00:41.592 [DEBUG] [sway/desktop/transaction.c:294] Applying transaction 0x1ab7050
+00:00:41.592 [DEBUG] [sway/input/input-manager.c:202] removing device: '0:0:wayland-seat0'
+00:00:41.592 [DEBUG] [sway/input/seat.c:950] removing device 0:0:wayland-seat0 from seat seat0
+2021-07-28 19:43:25 - [main.c:351] Destroying output WL-1 ((null))
+00:00:41.592 [DEBUG] [sway/ipc-server.c:535] Client 41 writable
+00:00:41.592 [DEBUG] [sway/desktop/layer_shell.c:351] Layer surface destroyed (panel)
+00:00:41.592 [DEBUG] [sway/desktop/layer_shell.c:351] Layer surface destroyed (wallpaper)
+00:00:41.593 [DEBUG] [sway/ipc-server.c:219] Client 37 readable
+00:00:41.593 [DEBUG] [sway/ipc-server.c:958] Added IPC reply of type 0x1 to client 37 queue: [ ]
+00:00:41.593 [DEBUG] [sway/ipc-server.c:535] Client 37 writable
+i3status: exiting due to signal.
+00:00:43.756 [INFO] [sway/main.c:436] Shutting down sway
+00:00:43.756 [DEBUG] [sway/input/input-manager.c:202] removing device: '0:0:wayland-seat0'
+00:00:43.756 [DEBUG] [sway/input/seat.c:950] removing device 0:0:wayland-seat0 from seat seat0
+00:00:43.756 [DEBUG] [sway/input/keyboard.c:825] Removing keyboard 0:0:wayland-seat0 from group 0x1adc5e0
+00:00:43.756 [DEBUG] [sway/input/keyboard.c:831] Destroying empty keyboard group 0x1adc5e0
+00:00:43.772 [INFO] [sway/ipc-server.c:565] IPC Client 41 disconnected
+00:00:43.772 [INFO] [sway/ipc-server.c:565] IPC Client 37 disconnected

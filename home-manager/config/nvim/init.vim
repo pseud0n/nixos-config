@@ -251,6 +251,9 @@ let g:user_emmet_leader_key='<leader>'
 
 let g:suda_smart_edit = 1
 
+let g:vimsence_small_text = 'NeoVim'
+let g:vimsence_small_image = 'neovim'
+
 set signcolumn=yes
 "
 " Use tab for trigger completion with characters ahead and navigate.

@@ -47,12 +47,16 @@ in rec {
 	#};
 	
 	nixpkgs.config.packageOverrides = pkgs: {
- 	       nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-        		inherit pkgs;
-        	};
+		nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+				inherit pkgs;
+			};
       	};
 	
 	nixpkgs.config.allowUnfree = true;
+	nixpkgs.config.allowBroken = true;
+	#allowBrokenPredicate = pkg: builtins.elem (lib.getName pkg) [
+	#	"ghc-vis"
+	#];
 	programs.home-manager.enable = true;
 
 	home.username = "alexs";
@@ -101,11 +105,13 @@ in rec {
 				xdg-utils
 				libinput
 				jq
+                pkg-config
 			];
 
 			guiMiscPackages = with pkgs; [
 				qtchan
 				neovim-qt
+				element-desktop
 				libreoffice
 				#firefox-wayland
 				etcher
@@ -132,7 +138,8 @@ in rec {
 				gnumake
 				cmake
 
-				clang_11
+                gcc10
+                #clang_11
                 clang-tools
 				flex
 				bison
@@ -166,6 +173,7 @@ in rec {
 				ghcid
 
 				vector
+                #ghc-vis
 			];
 
 			swayPackages = with pkgs; [
@@ -184,13 +192,12 @@ in rec {
 				wob # Show progress bar
 				flashfocus
 			];
-		in
-			cliMiscPackages ++
-			guiMiscPackages ++
-			programmingPackages ++
-			pythonPackages ++
-			haskellPackages ++
-			swayPackages
+		in cliMiscPackages
+		++ guiMiscPackages
+		++ programmingPackages
+		++ pythonPackages
+		++ haskellPackages
+		++ swayPackages
 	;
 
 	programs.bat.enable = true;
@@ -210,22 +217,15 @@ in rec {
 				};
 			}; in
 			with pkgs.vimPlugins; [
-#				{
-#					plugin = nvim-colorizer-lua;
-#					config = ''
-#						packadd! nvim-colorizer.lua
-#						lua require 'colorizer'.setup()
-#						'';
-#				}
 				# Aesthetics
 				gruvbox # Nice colour scheme
         	    vim-airline # Line at bottom of screen
-				vim-airline-themes # Gruvbox of course!
+				vim-airline-themes
 
 				#vim-bufferline
         	    #nvim-bufferline-lua
 				#barbar-nvim # Better tabs
-                #nvim-web-devicons
+                nvim-web-devicons
 
 				vim-smoothie # Smooth scrolling
 
@@ -269,6 +269,7 @@ in rec {
 				vim-gitbranch
 			];
 	};
+    xdg.configFile."nvim/coc-settings.json".text = readConfig /nvim/coc-settings.json;
 
 	xdg.mimeApps = {
 		enable = true;
@@ -466,7 +467,7 @@ in rec {
 		${readConfig /fish/functions/fish_prompt.fish};
 	'';
 
-    programs.git = {
+	programs.git = {
 		enable = true;
 		userName = "pseud0n";
 		userEmail = "pseud0n@users.noreply.github.com";
