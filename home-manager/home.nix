@@ -219,13 +219,13 @@ in rec {
 			with pkgs.vimPlugins; [
 				# Aesthetics
 				gruvbox # Nice colour scheme
-        	    vim-airline # Line at bottom of screen
+				vim-airline # Line at bottom of screen
 				vim-airline-themes
 
 				#vim-bufferline
         	    #nvim-bufferline-lua
 				#barbar-nvim # Better tabs
-                nvim-web-devicons
+				nvim-web-devicons
 
 				vim-smoothie # Smooth scrolling
 
