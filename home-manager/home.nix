@@ -105,7 +105,7 @@ in rec {
 				xdg-utils
 				libinput
 				jq
-                pkg-config
+				pkg-config
 			];
 
 			guiMiscPackages = with pkgs; [
@@ -138,9 +138,9 @@ in rec {
 				gnumake
 				cmake
 
-                gcc10
-                #clang_11
-                clang-tools
+				gcc10
+				#clang_11
+				clang-tools
 				flex
 				bison
 				boost
@@ -169,7 +169,7 @@ in rec {
 
 			haskellPackages = with pkgs.haskellPackages; [
 				haskell-language-server
-                hoogle
+				hoogle
 				ghcid
 
 				vector
@@ -178,8 +178,8 @@ in rec {
 
 			swayPackages = with pkgs; [
 				swayidle # Customise idle behaviour
-                ##swaylock # Lock screen
-                swaylock-effects # Various fancy effects
+				##swaylock # Lock screen
+				swaylock-effects # Various fancy effects
 				waybar # Info bar
 				grim # Take screenshot
 				slurp # Select area on screen
