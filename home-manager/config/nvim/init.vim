@@ -77,6 +77,14 @@ nnoremap <silent> <Tab>j :bprevious<CR>
 nnoremap <silent> <Tab>h :bfirst<CR>
 nnoremap <silent> <Tab>l :blast<CR>
 nnoremap <silent> <Tab>q :bd<CR>
+nnoremap <silent> <Tab>Q :bd!<CR>
+
+"nnoremap <silent> <Tab>n :enew<CR>
+"nnoremap <silent> <Tab>k :bnext<CR>
+"nnoremap <silent> <Tab>j :bprevious<CR>
+"nnoremap <silent> <Tab>h :bfirst<CR>
+"nnoremap <silent> <Tab>l :blast<CR>
+"nnoremap <silent> <Tab>q :bd<CR>
 
 "nnoremap <Tab>n :tabnew<Space>
 "nnoremap <Tab>k :tabnext<CR>
@@ -175,6 +183,8 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 autocmd FileType fish compiler fish
+autocmd FileType nix set ts=4 sw=4 noexpandtab
+autocmd FileType haskell set ts=2 sw=2 expandtab
 
 let g:lf_map_keys = 0
 

@@ -1,0 +1,139 @@
+@import "colours.css";
+
+* {
+	border: none;
+	border-radius: 0;
+	/* `otf-font-awesome` is required to be installed for icons */
+	font-family: 'Fira Code', Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	min-height: 0;
+}
+
+window#waybar {
+	background-color: @bg;
+	border-bottom: 3px solid @bg;
+	transition-property: background-color;
+	transition-duration: .5s;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+#workspaces button {
+	padding: 0 5px;
+	background-color: transparent;
+	color: @fg;
+}
+
+#workspaces button:hover {
+	background: rgba(0, 0, 0, 0.2);
+	box-shadow: inherit;
+	text-shadow: inherit;
+}
+
+#workspaces button.focused {
+	box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button.urgent {
+	background-color: @highlight;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+	padding: 0 10px;
+	margin: 0 4px;
+	color: @fg;
+}
+
+/*
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#backlight:hover,
+#network:hover,
+#pulseaudio:hover,
+#custom-media:hover,
+#tray:hover,
+#mode:hover,
+#idle_inhibitor:hover,
+#mpd:hover {
+	box-shadow: inset 0 -3px #ffffff;
+}
+*/
+
+#window,
+#workspaces {
+	margin: 0 4px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+	margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+	margin-right: 0;
+}
+
+@keyframes blink {
+	to {
+		background-color: #ffffff;
+		color: #000000;
+	}
+}
+
+#battery.critical:not(.charging) {
+	background-color: @critical;
+	animation-name: blink;
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+label:focus {
+	background-color: #000000;
+}
+
+#network.disconnected {
+	background-color: @hightlight;
+}
+
+#custom-media {
+	min-width: 100px;
+}
+
+#custom-media.custom-spotify {
+	background-color: #66cc99;
+}
+
+#temperature.critical {
+	background-color: @critical;
+}
+
+#tray > .passive {
+	-gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+	-gtk-icon-effect: highlight;
+	background-color: @highlight;
+}

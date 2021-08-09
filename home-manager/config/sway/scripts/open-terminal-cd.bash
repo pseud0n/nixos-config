@@ -1,8 +1,9 @@
 #! /usr/bin/env bash
-
 pid=$(swaymsg -t get_tree | jq '.. | select(.type?) | select(.focused==true).pid')
 
-process_match=$(ps -ef | awk '$3 == pid { print $2 }' pid=$pid)
+echo "$(ps -ef | grep fish)" > ~/log
+
+process_match=$(ps -ef | grep fish | awk '$3 == pid { print $2 }' pid=$pid)
 
 if [ -z $process_match ]
 then

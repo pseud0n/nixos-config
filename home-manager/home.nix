@@ -28,7 +28,7 @@ let
 	addAlpha = hex: "${defaultBackground}${hex}";
 	defaultBackgroundAlpha = addAlpha "FF";
 	#defaultTerminal = nixosConfig.environment.variables.TERMINAL; #"${config.environment.variables.TERMINAL}";
-	defaultTerminal = "alacritty";
+	defaultTerminal = nixosConfig.environment.variables.TERMINAL;
 
 	readConfig = path: builtins.readFile (homeConfigDir + path);
 
@@ -109,6 +109,10 @@ in rec {
 			];
 
 			guiMiscPackages = with pkgs; [
+				libnotify
+				gnome.networkmanagerapplet
+				pavucontrol
+				obsidian
 				qtchan
 				neovim-qt
 				element-desktop
@@ -191,6 +195,9 @@ in rec {
 				wofi # Wayland rofi, dmenu alternative
 				wob # Show progress bar
 				flashfocus
+				evemu
+				libinput
+				libappindicator
 			];
 		in cliMiscPackages
 		++ guiMiscPackages
@@ -232,6 +239,7 @@ in rec {
 				# Language support
 				vim-nix
 				vim-fish
+                i3config-vim
 
 				vim-markdown # md support
 
@@ -304,6 +312,12 @@ in rec {
 			terminal = defaultTerminal;
 			modifier = "Mod4";
 			menu = "dmenu_path | wofi -i --show run --gtk-dark | xargs swaymsg exec --";
+			bars = [
+				{
+					position = "top";
+					command = "${pkgs.waybar}/bin/waybar";
+				}
+			];
 
 			keybindings = with config.wayland.windowManager.sway.config; {
                 #"${modifier}+Return" = "exec \"alacritty -e fish -C $(pwdx $(ps -ef | awk '$3 == pid { print $2 }' pid=$(swaymsg -t get_tree | jq '.. | select(.type?) | select(.focused==true).pid')) | awk '{ print $2 }') || alacritty\"";
@@ -399,12 +413,17 @@ in rec {
 		extraConfig = readConfig /sway/config;
 	};
 
+	programs.waybar = {
+		enable = true;
+    };
+	xdg.configFile."waybar/config".text = readConfig /waybar/config;
+	xdg.configFile."waybar/style.css".text = readConfig /waybar/style.css;
+	xdg.configFile."waybar/colours.css".text = readConfig /waybar/colours.css;
+
 	programs.alacritty = {
 		enable = true;
 	};
-	xdg.configFile."alacritty/alacritty.yml" = {
-		text = readConfig /alacritty/themes/gruvbox-material-alacritty.yml;
-	};
+	xdg.configFile."alacritty/alacritty.yml".text = readConfig /alacritty/themes/gruvbox-material-alacritty.yml;
 
 	programs.fish = {
 		enable = true;
@@ -413,40 +432,31 @@ in rec {
 			ls = "lsd";
 			tree = "lsd --tree";
 			nix-pr = "/nix/var/nix/profiles/system";
+			avg-core-temp = "cat /sys/class/thermal/thermal_zone*/temp | awk '{ sum += $1 } END { print sum / NR }'";
 		};
 		functions = {
-			open_terminal = {
-				description = "Opens new terminal in pwd of focused terminal, or $HOME if no terminal focused";
-				body = ''
-					set process_match (ps -ef | awk '$3 == pid { print $2 }' pid=(swaymsg -t get_tree | jq '.. | select(.type?) | select(.focused==true).pid')) | awk '{ print $2 }'
-				    if test -z $process_match
-				        echo alacritty
-				    else
-				        echo "alacritty -e fish -C" (pwdx $process_match | awk '{ print $2 }')
-				    end
-				'';
-			};
 			project-new = {
 				description = "Creates a new project in dump and link to current location";
 				body = ''
 					set project_path "$HOME/dev/.dump/projects/$argv[1]"
+                    ./.gen.fish $argv
 					mkdir $project_path
 					ln -s $project_path $name
 					cd $project_path
-					printf "%s\n" \
-						"with import <nixpkgs> { };" \
-						"mkShell {" \
-						"	buildInputs = [ $argv[2..-1] ];" \
-						"}" > $project_path/shell.nix
 				'';
+#					printf "%s\n" \
+#						"with import <nixpkgs> { };" \
+#						"mkShell {" \
+#						"	buildInputs = [ $argv[2..-1] ];" \
+#						"}" > $project_path/shell.nix
 			};
 			project-del = {
 				description = "Deletes project in dump and deletes link in current directory";
 				body = ''
 					for name in $argv
-					rm -r $project_path "$HOME/dev/.dump/projects/$name"
-					rm $name
-	end
+						rm -r $project_path "$HOME/dev/.dump/projects/$name"
+						rm $name
+					end
 				'';
 			};
 			project-list-all = {

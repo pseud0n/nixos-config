@@ -1,11 +1,15 @@
 input "1390:306:ELECOM_TrackBall_Mouse_DEFT_Pro_TrackBall" {
-	accel_profile adaptive
-	pointer_accel -0.25
+	accel_profile flat
+	pointer_accel -0.8
 }
+
 
 gaps inner 10
 gaps outer 5
 default_border pixel 2
+
+for_window [app_id="nm-connection-editor"] floating enable, resize set 400 400
+for_window [app_id="pavucontrol"] floating enable, resize set 400 400
 
 exec_always makoctl reload
 exec mkfifo /tmp/wobpipe
@@ -14,4 +18,4 @@ exec_always 'tail -f /tmp/wobpipe | wob -a top -a right --padding 0 --margin 10 
 exec_always swayidle -w \
          timeout 300 /etc/nixos/home-manager/config/sway/scripts/swaylock.bash \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         before-sleep /etc/nixos/home-manager/config/sway/scripts/swaylock.bash \ 
+         before-sleep /etc/nixos/home-manager/config/sway/scripts/swaylock.bash 

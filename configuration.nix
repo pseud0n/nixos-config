@@ -99,12 +99,13 @@ in {
 	environment.variables = {
 		TERMIINAL = "alacritty";
 		QT_QPA_PLATFORM = "wayland";
+        DEV_DIR = "$HOME/dev";
+		XDG_CURRENT_DESTKOP = "Unity";
 	};
 
 	programs.sway = {
 		enable = true;
 		wrapperFeatures.gtk = true;
-		#extraConfig = builtins.readFile ./home-manager/config/sway/config;
 	};
 
 	# Enable CUPS to print documents.
