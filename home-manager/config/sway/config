@@ -1,6 +1,6 @@
 input "1390:306:ELECOM_TrackBall_Mouse_DEFT_Pro_TrackBall" {
 	accel_profile flat
-	pointer_accel -0.8
+	pointer_accel -1
 }
 
 
