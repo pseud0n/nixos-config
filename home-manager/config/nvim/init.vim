@@ -59,8 +59,6 @@ map <ScrollWheelDown> <C-D>
 
 "nnoremap <C-p> :GFiles <CR>
 
-"unmap <leader>
-
 nnoremap <leader><space> :History <CR>
 nnoremap <leader>lf :Lf <CR>
 nnoremap <leader>lc :Lfcd <CR>
@@ -78,19 +76,6 @@ nnoremap <silent> <Tab>h :bfirst<CR>
 nnoremap <silent> <Tab>l :blast<CR>
 nnoremap <silent> <Tab>q :bd<CR>
 nnoremap <silent> <Tab>Q :bd!<CR>
-
-"nnoremap <silent> <Tab>n :enew<CR>
-"nnoremap <silent> <Tab>k :bnext<CR>
-"nnoremap <silent> <Tab>j :bprevious<CR>
-"nnoremap <silent> <Tab>h :bfirst<CR>
-"nnoremap <silent> <Tab>l :blast<CR>
-"nnoremap <silent> <Tab>q :bd<CR>
-
-"nnoremap <Tab>n :tabnew<Space>
-"nnoremap <Tab>k :tabnext<CR>
-"nnoremap <Tab>j :tabprev<CR>
-"nnoremap <Tab>h :tabfirst<CR>
-"nnoremap <Tab>l :tablast<CR>
 
 "nnoremap <silent>    <Tab>j :BufferPrevious<CR>
 "nnoremap <silent>    <Tab>k :BufferNext<CR>
