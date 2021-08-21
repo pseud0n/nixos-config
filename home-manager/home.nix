@@ -29,6 +29,7 @@ let
 	defaultBackgroundAlpha = addAlpha "FF";
 	#defaultTerminal = nixosConfig.environment.variables.TERMINAL; #"${config.environment.variables.TERMINAL}";
 	defaultTerminal = nixosConfig.environment.variables.TERMINAL;
+	devDir = nixosConfig.environment.variables.DEV_DIR;
 
 	readConfig = path: builtins.readFile (homeConfigDir + path);
 
@@ -60,11 +61,9 @@ in rec {
 	programs.home-manager.enable = true;
 
 	home.username = "alexs";
-	home.homeDirectory = "/home/${home.username}";
+	home.homeDirectory = nixosConfig.users.users.alexs.home;
 
 	home.sessionVariables = {
-		MOZ_ENABLE_WAYLAND = 1;
-		XDG_CURRENT_DESTKOP = "sway";
 	};
 
 	home.packages = 
@@ -94,30 +93,34 @@ in rec {
 				ripgrep
 				fd
 				flatpak
-				dragon-drop
 				lsd
 				htop
 				hexyl
 				jack1
 				xboxdrv
 				libxkbcommon
-				sxiv
 				xdg-utils
 				libinput
 				jq
 				pkg-config
+				glib-networking
+				trash-cli
 			];
 
 			guiMiscPackages = with pkgs; [
-				libnotify
-				gnome.networkmanagerapplet
-				pavucontrol
+				gtk-engine-murrine
+				gtk_engines
+				gsettings-desktop-schemas
+				glib
+				gtk3
+				hicolor-icon-theme
+				transmission-remote-gtk
+				gnome3.adwaita-icon-theme
+				gnome-breeze
+
+				whatsapp-for-linux
 				obsidian
 				qtchan
-				neovim-qt
-				element-desktop
-				libreoffice
-				#firefox-wayland
 				etcher
 				discord
 				zoom-us
@@ -129,11 +132,25 @@ in rec {
 				gimp
 				virtualbox
 				webcamoid
+				agenda
+				pcmanfm
+				klavaro
+				barrier
+
+				mpv
+				sxiv
+				dragon-drop
+				libnotify
+				gnome.networkmanagerapplet
+				pavucontrol
+				neovim-qt
+				element-desktop
+				libreoffice
+				#firefox-wayland
 				alacritty
 				conky
 				wine
 				libappindicator-gtk3
-				pcmanfm
 			];
 
 			pythonVersion = "python39";
@@ -154,6 +171,9 @@ in rec {
 				rust-analyzer
 				rustc
 				rustfmt
+
+				gradle
+				jdk11
 
 				pkgs."${pythonVersion}"
 
@@ -229,6 +249,8 @@ in rec {
 				vim-airline # Line at bottom of screen
 				vim-airline-themes
 
+				#nvim-treesitter # Better syntax hightlighting
+
 				#vim-bufferline
         	    #nvim-bufferline-lua
 				#barbar-nvim # Better tabs
@@ -252,6 +274,7 @@ in rec {
 				coc-tsserver
 				coc-json
 				coc-cmake
+				coc-java
 
 				# Utilities
 				suda-vim # sudo, but without launching Vim with sudo
@@ -285,6 +308,9 @@ in rec {
 			"image/png" = "sxiv.desktop";
 			"image/jpeg" = "sxiv.desktop";
 			"image/gif" = "sxiv.desktop";
+
+			"video/mp4" = "mpv.desktop";
+			"x-scheme-handler/discord-424004941485572097"="discord-424004941485572097.desktop";
 		};
 	};
 
@@ -429,6 +455,7 @@ in rec {
 		enable = true;
 		shellInit = readConfig /fish/icons.fish;
 		shellAliases = {
+			exe = "result/bin/*";
 			ls = "lsd";
 			tree = "lsd --tree";
 			nix-pr = "/nix/var/nix/profiles/system";
@@ -438,11 +465,12 @@ in rec {
 			project-new = {
 				description = "Creates a new project in dump and link to current location";
 				body = ''
-					set project_path "$HOME/dev/.dump/projects/$argv[1]"
-                    ./.gen.fish $argv
+					set link_path (pwd)
+					set project_path "${devDir}/.dump/projects/$argv[1]"
 					mkdir $project_path
 					ln -s $project_path $name
 					cd $project_path
+                    "$link_path/.gen.fish" $link_path
 				'';
 #					printf "%s\n" \
 #						"with import <nixpkgs> { };" \
@@ -454,7 +482,7 @@ in rec {
 				description = "Deletes project in dump and deletes link in current directory";
 				body = ''
 					for name in $argv
-						rm -r $project_path "$HOME/dev/.dump/projects/$name"
+						rm -r $project_path "${devDir}/.dump/projects/$name"
 						rm $name
 					end
 				'';
@@ -462,12 +490,19 @@ in rec {
 			project-list-all = {
 				description = "Lists all projects in dump";
 				body = ''
-					ls $HOME/dev/.dump/projects
+					ls ${devDir}/.dump/projects
 				'';
 			};
 			__informative_git_prompt = {
 				description = "Provides git information";
 				body = readConfig /fish/functions/__informative_git_prompt.fish;
+			};
+
+			pkg-search = {
+				description = "Search for Nix package";
+				body = ''
+					nix-env -f '<nixpkgs>' -qaP -A $argv
+				'';
 			};
 		};
 	};
@@ -476,6 +511,8 @@ in rec {
 		. ${homeConfigDir}/fish/functions/__informative_git_prompt.fish
 		${readConfig /fish/functions/fish_prompt.fish};
 	'';
+
+	xdg.configFile."lf/lfrc".text = readConfig /lf/lfrc;
 
 	programs.git = {
 		enable = true;

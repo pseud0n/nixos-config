@@ -11,6 +11,7 @@ let
 	#unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 	user = "alexs";
 	home = "/home/${user}";
+	homeManagerDir = "${home}/nixos/home-manager/config";
 in {
 	imports =
 		[ # Include the results of the hardware scan.
@@ -22,10 +23,11 @@ in {
 
 	nixpkgs.config.allowUnfree = true; # proprietary drivers
 
-	nixpkgs.config.packageOverrides = pkgs: {
+	nixpkgs.config.packageOverrides = pkgs: with pkgs;{
 	        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
 	        	inherit pkgs;
         	};
+
 	};
 
 	# Use the systemd-boot EFI boot loader.
@@ -39,8 +41,9 @@ in {
 				version = 2;
 				device = "nodev";
 				extraEntries =  ''
-					menuentry "Windows 10" {
-				    		chainloader (hd0,0)+1
+					menuentry "Windows" {
+							set root=(hd0,1)
+				    		chainloader +1
 				  	}
   				'';
 
@@ -96,11 +99,22 @@ in {
 		};
 	};
 
-	environment.variables = {
-		TERMIINAL = "alacritty";
-		QT_QPA_PLATFORM = "wayland";
-        DEV_DIR = "$HOME/dev";
-		XDG_CURRENT_DESTKOP = "Unity";
+	environment = {
+		variables = {
+			TERMINAL = "alacritty";
+			QT_QPA_PLATFORM = "wayland";
+			XDG_CURRENT_DESTKOP = "sway";
+			MOZ_ENABLE_WAYLAND = "1";
+			_JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
+			GTK_THEME = "Adawaita:dark";
+			DEV_DIR = "$HOME/dev";
+			HOME_MANAGER_DIR = homeManagerDir;
+		};
+		etc = {
+			"xdg/gtk-2.0".source = homeManagerDir + "/gtk/gtk-2.0";
+			"xdg/gtk-3.0".source = homeManagerDir + "/gtk/gtk-3.0";
+			"xdg/gtk-3.2".source = homeManagerDir + "/gtk/gtk-3.2";
+		};
 	};
 
 	programs.sway = {
@@ -191,6 +205,8 @@ in {
 		networkmanager
 		unzip
 		libsecret
+
+		agenda
 	];
 
 #	system.activationScripts = {

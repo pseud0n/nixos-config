@@ -18,6 +18,8 @@ set hidden
 set list
 set listchars=tab:·\ 
 
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon100
+
 let g:gruvbox_contrast_dark='soft'
 colorscheme gruvbox
 
@@ -50,8 +52,8 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 
-map <ScrollWheelUp> <C-U>
-map <ScrollWheelDown> <C-D>
+"map <ScrollWheelUp> <C-U>
+"map <ScrollWheelDown> <C-D>
 
 "nmap <leader>gs :G<CR>
 "nmap <leader>gh :diffget //3<CR>
@@ -171,7 +173,8 @@ autocmd FileType fish compiler fish
 autocmd FileType nix set ts=4 sw=4 noexpandtab
 autocmd FileType haskell set ts=2 sw=2 expandtab
 
-let g:lf_map_keys = 0
+let g:lf_map_keys=0
+let g:lf_open_new_tab=0
 
 let g:ctrlp_show_hidden = 1
 
@@ -239,10 +242,10 @@ let g:airline_stl_path_style = 'short'
 
 let g:airline_section_z = ''
 
-let g:user_emmet_mode='n'
+let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
-let g:user_emmet_leader_key='<leader>'
+"let g:user_emmet_leader_key='<leader>'
 
 let g:suda_smart_edit = 1
 
@@ -255,10 +258,6 @@ set signcolumn=yes
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 

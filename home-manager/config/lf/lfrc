@@ -1,0 +1,57 @@
+set icons true
+set drawbox true
+
+cmd on-cd &{{
+    # display git repository status in your prompt
+    source /usr/share/git/completion/git-prompt.sh
+    GIT_PS1_SHOWDIRTYSTATE=auto
+    GIT_PS1_SHOWSTASHSTATE=auto
+    GIT_PS1_SHOWUNTRACKEDFILES=auto
+    GIT_PS1_SHOWUPSTREAM=auto
+    git=$(__git_ps1 " (%s)") || true
+    fmt="\033[32;1m%u@%h\033[0m:\033[34;1m%d\033[0m\033[1m%f$git\033[0m"
+    lf -remote "send $id set promptfmt \"$fmt\""
+}}
+
+cmd unarchive ${{
+	case "$1" in
+		*.zip) unzip -l "$1";;
+		*.tar.gz) tar -xzvf "$f" ;;
+		*.tar.bz2) tar -xjvf "$f" ;;
+		*.tar) tar -xvf "$f" ;;
+	    *.rar) unrar l "$f";;
+	    *.7z) 7z l "$f";;
+	    *.pdf) pdftotext "$f" -;;
+		*) echo "Unzip for $f nor supported" ;;
+	esac
+}}
+
+cmd fzf_jump ${{
+  res="$(find . -maxdepth 3 | fzf --reverse --header='Jump to location')"
+  if [ -f "$res" ]; then
+    cmd="select"
+  elif [ -d "$res" ]; then
+    cmd="cd"
+  fi
+  lf -remote "send $id $cmd \"$res\""
+}}
+
+cmd dragon %dragon -a -x $fx
+cmd dragon-stay %dragon -a $fx
+cmd dragon-individual %dragon $fx
+
+map d
+
+map dr dragon
+map ds dragon-stay
+map di dragon-individual
+
+map <delete> delete
+map p paste
+map x cut
+map y copy
+map u unselect
+map c clear
+map r rename
+
+on-cd
