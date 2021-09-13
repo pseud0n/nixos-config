@@ -64,6 +64,7 @@
 	},
 	"python": {
 		"command": "python",
+		"pythonPath": "nvim-python3",
 		"args": [
 			"-mpyls",
 			"-vv",

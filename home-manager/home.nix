@@ -1,6 +1,3 @@
-#  nix-channel --add https://github.com/nix-community/home-manager/archive/release-21.05.tar.gz home-manager
-# nix-channel --update
-
 { config, pkgs, ... }:
 with import <nixpkgs> { config = { allowUnfree = true; }; };
 
@@ -8,6 +5,9 @@ let
 	nixosConfig = (import <nixpkgs/nixos> {}).config;
 
 	homeConfigDir = /etc/nixos/home-manager/config;
+
+	unstableTarball = fetchTarball
+      https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
 
 	gruvboxTheme = {
 		bg = "282828";
@@ -49,9 +49,12 @@ in rec {
 	
 	nixpkgs.config.packageOverrides = pkgs: {
 		nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-				inherit pkgs;
-			};
-      	};
+			inherit pkgs;
+		};
+		unstable = import unstableTarball {
+			config = config.nixpkgs.config;
+		};
+    };
 	
 	nixpkgs.config.allowUnfree = true;
 	nixpkgs.config.allowBroken = true;
@@ -82,10 +85,14 @@ in rec {
 					ref = "master";
 					rev = "4a62ec17e20ce0e738a8e5126b4298a73903b468"; 
 				}) {})
+				interception-tools
+				#libstdcxx5
+				taskwarrior
+				imagemagick
 				bat
+				lxsession
 				nix-prefetch-git
 				grub2
-				doas
 				appimage-run
 				lf
 				neofetch
@@ -105,9 +112,12 @@ in rec {
 				pkg-config
 				glib-networking
 				trash-cli
+				xorg.xhost
+				xorg.libXcomposite
 			];
 
 			guiMiscPackages = with pkgs; [
+				postman
 				gtk-engine-murrine
 				gtk_engines
 				gsettings-desktop-schemas
@@ -147,6 +157,7 @@ in rec {
 				element-desktop
 				libreoffice
 				#firefox-wayland
+				epiphany
 				alacritty
 				conky
 				wine
@@ -174,23 +185,31 @@ in rec {
 
 				gradle
 				jdk11
+				openjfx15
+				scenebuilder
 
-				pkgs."${pythonVersion}"
+				#pkgs."${pythonVersion}"
 
 				cabal2nix
 				cabal-install
 				ghc
 
 				nodejs
-				yarn
+				nodePackages.nodemon
+
+				#mongodb-4_2
+				mongodb
 			];
 
-			pythonPackages = with pkgs."${pythonVersion}Packages"; [
+			#pythonPackages = with pkgs."${pythonVersion}Packages"; [
+			pythonPackages = packages: with packages; [
 				bpython
 				numpy
 				pyglet
+				cython
+				pynvim
+				tasklib
 			];
-
 			haskellPackages = with pkgs.haskellPackages; [
 				haskell-language-server
 				hoogle
@@ -204,7 +223,7 @@ in rec {
 				swayidle # Customise idle behaviour
 				##swaylock # Lock screen
 				swaylock-effects # Various fancy effects
-				waybar # Info bar
+				#unstable.waybar # Info bar
 				grim # Take screenshot
 				slurp # Select area on screen
 				#mako # Notifications
@@ -218,13 +237,14 @@ in rec {
 				evemu
 				libinput
 				libappindicator
+				brightnessctl
 			];
 		in cliMiscPackages
 		++ guiMiscPackages
 		++ programmingPackages
-		++ pythonPackages
 		++ haskellPackages
 		++ swayPackages
+		++ [(python38.withPackages pythonPackages)]
 	;
 
 	programs.bat.enable = true;
@@ -232,6 +252,7 @@ in rec {
 	programs.neovim = {
 		enable = true;
 		vimAlias = true;
+		withPython3 = true;
 		extraConfig = readConfig /nvim/init.vim;
 		plugins =
 			let ctrlsf-vim = pkgs.vimUtils.buildVimPluginFrom2Nix {
@@ -242,7 +263,17 @@ in rec {
 					rev = "51c5b285146f042bd2015278f9b8ad74ae915e00";
 					sha256 = "1901cr6sbaa8js4ylirz9p4m0r9q0a06gm71ghl6kp6pw7h5fgmq";
 				};
-			}; in
+			};
+			vim-lf = pkgs.vimUtils.buildVimPluginFrom2Nix {
+				name = "vim-lf";
+				src = pkgs.fetchFromGitHub {
+					owner = "longkey1";
+					repo = "vim-lf";
+					rev = "558634097fe02abd025100158c20277618b8bab2";
+					sha256 = "06f3lz4dkslnhysl0jcykm4b2pnkazjjpafnxlhz4qsrf21jqkfm";
+				};
+			};
+			in
 			with pkgs.vimPlugins; [
 				# Aesthetics
 				gruvbox # Nice colour scheme
@@ -285,12 +316,17 @@ in rec {
 				vim-hoogle # Hoogle search within Vim
 				emmet-vim # generate HTML (like zen coding)
 
+				vimwiki # note-taking
+				taskwiki
+				vim-markdown
+
 				# Movement
 				vim-sneak
 				ctrlp-vim
 				ctrlsf-vim
 				vim-floaterm
 				lf-vim
+				vim-lf
 				fzf-vim
 				
 				# Git
@@ -299,6 +335,16 @@ in rec {
 				vim-rhubarb
 				vim-gitbranch
 			];
+			extraPackages = with pkgs; [
+				(python3.withPackages (ps: with ps; [
+					pynvim
+					tasklib
+				]))
+			];
+			extraPython3Packages = (ps: with ps; [
+				pynvim
+				tasklib
+			]);
 	};
     xdg.configFile."nvim/coc-settings.json".text = readConfig /nvim/coc-settings.json;
 
@@ -311,6 +357,7 @@ in rec {
 
 			"video/mp4" = "mpv.desktop";
 			"x-scheme-handler/discord-424004941485572097"="discord-424004941485572097.desktop";
+			"x-scheme-handler/postman" = "Postman.desktop";
 		};
 	};
 
@@ -333,17 +380,31 @@ in rec {
 		config = rec {
 			#fonts = {"${defaultFont}" = 15;} ;
 			#fonts = { "FiraCode" = 15; };
-			input."*".xkb_layout = "gb";
+			floating.criteria = [
+				{"app_id" = "nm-connection-editor";}
+				{"app_id" = "pavucontrol";}
+			];
+			input."*" = {
+				xkb_layout = "gb";
+				accel_profile = "flat";
+				pointer_accel = "-0.5";
+			};
 			output."*".bg = "${homeConfigDir}/sway/backgrounds/gruvbox-dark-rainbow.png fill";
 			terminal = defaultTerminal;
 			modifier = "Mod4";
-			menu = "dmenu_path | wofi -i --show run --gtk-dark | xargs swaymsg exec --";
+			#menu = "dmenu_path | wofi -i --show run --gtk-dark | xargs swaymsg exec --";
+			menu = "fish -c $(echo \"$(fish -c functions)\\n$(dmenu_path)\" | tr -s ', ' '\\n' | wofi -i --show dmenu --gtk-dark)";
 			bars = [
 				{
 					position = "top";
 					command = "${pkgs.waybar}/bin/waybar";
 				}
 			];
+			gaps = {
+				inner = 10;
+				outer =  0;
+			};
+			window.border = 2;
 
 			keybindings = with config.wayland.windowManager.sway.config; {
                 #"${modifier}+Return" = "exec \"alacritty -e fish -C $(pwdx $(ps -ef | awk '$3 == pid { print $2 }' pid=$(swaymsg -t get_tree | jq '.. | select(.type?) | select(.focused==true).pid')) | awk '{ print $2 }') || alacritty\"";
@@ -409,7 +470,9 @@ in rec {
 				"${modifier}+n" = "exec flashfocus";
 				"XF86AudioRaiseVolume" = "exec amixer -q set Master 5%+ unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe";
 				"XF86AudioLowerVolume" = "exec amixer -q set Master 5%- unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe";
-
+				 "XF86AudioMute" = "amixer sset Master toggle | sed -En '/\\[on\\]/ s/.*\\[([0-9]+)%\\].*/\\1/ p; /\\[off\\]/ s/.*/0/p' | head -1 > /tmp/wobpipe";
+				"XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
+				"XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
 				"Print" = "exec grim - | wl-copy";
 				"${modifier}+Print" = "exec grim -g \"$(slurp)\" - | wl-copy";
 			};
@@ -457,7 +520,6 @@ in rec {
 		shellAliases = {
 			exe = "result/bin/*";
 			ls = "lsd";
-			tree = "lsd --tree";
 			nix-pr = "/nix/var/nix/profiles/system";
 			avg-core-temp = "cat /sys/class/thermal/thermal_zone*/temp | awk '{ sum += $1 } END { print sum / NR }'";
 		};
@@ -502,6 +564,20 @@ in rec {
 				description = "Search for Nix package";
 				body = ''
 					nix-env -f '<nixpkgs>' -qaP -A $argv
+				'';
+			};
+
+			gparted-run = {
+				description = "Run gparted";
+				body = ''
+					xhost +local:
+					gparted
+				'';
+			};
+			kdenlive-run = {
+				description = "Run kdenlive on Wayland";
+				body = ''
+					QT_QPA_PLATFORM=xcb kdenlive
 				'';
 			};
 		};

@@ -37,7 +37,7 @@ window#waybar.hidden {
 }
 
 #workspaces button.urgent {
-	background-color: @highlight;
+	color: @highlight;
 }
 
 #clock,

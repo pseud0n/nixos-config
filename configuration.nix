@@ -1,9 +1,11 @@
 # Edit this configuration file to define what should be installed on
 # your system.	Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-## nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-# nix-channel --add https://nixos.org/channels/nixos-unstable nixos
-# nix-channel --add https://channels.nixos.org/nixos-21.05 nixos
+
+# https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+# https://nixos.org/channels/nixos-unstable unstable
+# https://channels.nixos.org/nixos-21.05 nixos
+
 
 { config, lib, pkgs, ... }:
 
@@ -83,6 +85,12 @@ in {
 	 	gnome.gnome-keyring.enable = true;
 	 	upower.enable = true;
 
+		mongodb = {
+			enable = true;
+			dbpath = "${home}/data/db";
+			user = "alexs";
+		};
+
 		xserver = {
 			enable = true;
             synaptics.accelFactor = "2.0";
@@ -93,7 +101,23 @@ in {
 			};
 			displayManager = {
 				defaultSession = "sway";
-				sddm.enable = true;
+				lightdm.greeters.mini = {
+					enable = true;
+					user = user;
+					extraConfig = ''
+						[greeter]
+						show-password-label = true
+						password-alignment = center
+						password-label-text = ♥♥♥♥♥
+						[greeter-theme]
+
+						[greeter-theme]
+						window-color = "#D79921"
+						font-size = 1em
+						background-image = "./home-manager/config/sway/backgrounds/gruvbox-dark-rainbow.png"
+						border-width = 1px
+					'';
+				};
 			};
 			layout = "gb";
 		};
@@ -106,14 +130,13 @@ in {
 			XDG_CURRENT_DESTKOP = "sway";
 			MOZ_ENABLE_WAYLAND = "1";
 			_JAVA_OPTIONS = "-Dawt.useSystemAAFontSettings=lcd";
-			GTK_THEME = "Adawaita:dark";
+			GTK_THEME = "Adwaita:dark";
 			DEV_DIR = "$HOME/dev";
 			HOME_MANAGER_DIR = homeManagerDir;
 		};
 		etc = {
 			"xdg/gtk-2.0".source = homeManagerDir + "/gtk/gtk-2.0";
 			"xdg/gtk-3.0".source = homeManagerDir + "/gtk/gtk-3.0";
-			"xdg/gtk-3.2".source = homeManagerDir + "/gtk/gtk-3.2";
 		};
 	};
 
@@ -161,7 +184,7 @@ in {
 		shell = pkgs.fish;
 		home = home;
 		isNormalUser = true;
-		extraGroups = [ "wheel" "video" "networkmanager"]; # Enable ‘sudo’ for the user.
+		extraGroups = [ "wheel" "video" "networkmanager" "dialout" ]; # Enable ‘sudo’ for the user.
 	};
 
 	fonts.fonts = with pkgs; [

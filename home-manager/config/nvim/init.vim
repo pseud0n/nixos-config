@@ -2,6 +2,8 @@
 set encoding=utf-8
 set number relativenumber
 syntax enable
+syntax on
+set nocompatible
 set noswapfile
 set scrolloff=7
 set backspace=indent,eol,start
@@ -29,6 +31,7 @@ set showtabline=2
 " We don't need to see things like -- INSERT -- anymore
 set noshowmode
 
+filetype plugin on
 filetype plugin indent on
 
 set tabstop=4
@@ -175,11 +178,14 @@ autocmd FileType haskell set ts=2 sw=2 expandtab
 
 let g:lf_map_keys=0
 let g:lf_open_new_tab=0
+let g:lf_replace_netrw = 1
 
 let g:ctrlp_show_hidden = 1
 
+let g:ctrlp_max_files = 0
+
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.git$',
+  \ 'dir':  '\v[\/](target|node_modules|\.git)$',
   \ 'file': '\v\.(exe|so|dll|o)$',
   \ 'link': '',
   \ }
@@ -243,8 +249,8 @@ let g:airline_stl_path_style = 'short'
 let g:airline_section_z = ''
 
 let g:user_emmet_mode='a'
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+let g:user_emmet_install_global = 1
+"autocmd FileType html,css,ejs,js EmmetInstall
 "let g:user_emmet_leader_key='<leader>'
 
 let g:suda_smart_edit = 1
@@ -275,3 +281,10 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+nmap <leader>wg jwwiglossary/<esc>
+let g:vimwiki_list = [{'path':'/home/alexs/vimwiki', 'syntax':'markdown', 'ext':'.md'}]
+let g:vimwiki_markdown_link_ext = 1
+let g:taskwiki_markup_syntax = 'markdown'
+let g:markdown_folding = 1
+autocmd FileType markdown let b:coc_suggest_disable = 1

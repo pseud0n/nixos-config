@@ -1,4 +1,4 @@
-set fish_greeting
+set -U fish_greeting ""
 
 alias ls "lsd"
 alias tree "lsd --tree"
