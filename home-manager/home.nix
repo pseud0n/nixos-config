@@ -6,8 +6,8 @@ let
 
 	homeConfigDir = /etc/nixos/home-manager/config;
 
-	unstableTarball = fetchTarball
-      https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
+#	unstableTarball = fetchTarball
+#      https://github.com/NixOS/nixpkgs/archive/nixos-unstable.tar.gz;
 
 	gruvboxTheme = {
 		bg = "282828";
@@ -32,44 +32,37 @@ let
 	devDir = nixosConfig.environment.variables.DEV_DIR;
 
 	readConfig = path: builtins.readFile (homeConfigDir + path);
+	
+	isPi = builtins.currentSystem == "aarch64-linux";
 
 in rec {
-	#imports = lib.attrValues nur-no-pkgs.repos.moredhel.hmModules.modules;
-
-	#services.unison = {
-	#	enable = true;
-	#	profiles = {
-	#		org = {
-	#			src = "/home/moredhel/org";
-	#      			dest = "/home/moredhel/org.backup";
-	#      			extraArgs = "-batch -watch -ui text -repeat 60 -fat";
-	#		};
-	#	};
-	#};
+#	nixpkgs.config.packageOverrides = pkgs: {
+#		nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+#			inherit pkgs;
+#		};
+#		unstable = import unstableTarball {
+#			config = config.nixpkgs.config;
+#		};
+#    };
 	
-	nixpkgs.config.packageOverrides = pkgs: {
-		nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-			inherit pkgs;
-		};
-		unstable = import unstableTarball {
-			config = config.nixpkgs.config;
-		};
-    };
-	
+#	nixpkgs.config.permittedInsecurePackages = [
+#		"libsixel-1.8.6"
+#	];
 	nixpkgs.config.allowUnfree = true;
-	nixpkgs.config.allowBroken = true;
+	#nixpkgs.config.allowBroken = false;
 	#allowBrokenPredicate = pkg: builtins.elem (lib.getName pkg) [
 	#	"ghc-vis"
 	#];
+	nixpkgs.config.
 	programs.home-manager.enable = true;
 
 	home.username = "alexs";
 	home.homeDirectory = nixosConfig.users.users.alexs.home;
 
-	home.sessionVariables = {
-	};
+#	home.sessionVariables = {
+#	};
 
-	home.packages = 
+	home.packages =
 		let
 			cliMiscPackages = with pkgs; [
 #				(import (builtins.fetchFromGitHub {
@@ -85,6 +78,8 @@ in rec {
 					ref = "master";
 					rev = "4a62ec17e20ce0e738a8e5126b4298a73903b468"; 
 				}) {})
+				#libsixel
+				#ffmpeg-sixel
 				interception-tools
 				#libstdcxx5
 				taskwarrior
@@ -93,7 +88,6 @@ in rec {
 				lxsession
 				nix-prefetch-git
 				grub2
-				appimage-run
 				lf
 				neofetch
 				pfetch
@@ -117,7 +111,6 @@ in rec {
 			];
 
 			guiMiscPackages = with pkgs; [
-				postman
 				gtk-engine-murrine
 				gtk_engines
 				gsettings-desktop-schemas
@@ -128,19 +121,11 @@ in rec {
 				gnome3.adwaita-icon-theme
 				gnome-breeze
 
-				whatsapp-for-linux
-				obsidian
-				qtchan
-				etcher
-				discord
-				zoom-us
 				thunderbird
 				agenda
-				spotify
-				blender mupdf
+				mupdf
 				plasma5Packages.kdenlive
 				gimp
-				virtualbox
 				webcamoid
 				agenda
 				pcmanfm
@@ -159,10 +144,25 @@ in rec {
 				#firefox-wayland
 				epiphany
 				alacritty
+				foot
 				conky
-				wine
 				libappindicator-gtk3
-			];
+			] ++ (if isPi then [
+			] else [
+				whatsapp-for-linux
+				obsidian
+				qtchan
+				etcher
+				discord
+				zoom-us
+				wine
+				spotify
+				virtualbox
+				blender
+				appimage-run
+				postman
+				spotify
+			]);
 
 			pythonVersion = "python39";
 
@@ -185,8 +185,8 @@ in rec {
 
 				gradle
 				jdk11
-				openjfx15
-				scenebuilder
+				#openjfx15
+				#scenebuilder
 
 				#pkgs."${pythonVersion}"
 
@@ -203,7 +203,7 @@ in rec {
 
 			#pythonPackages = with pkgs."${pythonVersion}Packages"; [
 			pythonPackages = packages: with packages; [
-				bpython
+				#bpython
 				numpy
 				pyglet
 				cython
@@ -277,8 +277,8 @@ in rec {
 			with pkgs.vimPlugins; [
 				# Aesthetics
 				gruvbox # Nice colour scheme
-				vim-airline # Line at bottom of screen
-				vim-airline-themes
+				#vim-airline # Line at bottom of screen
+				#vim-airline-themes
 
 				#nvim-treesitter # Better syntax hightlighting
 
@@ -340,13 +340,14 @@ in rec {
 					pynvim
 					tasklib
 				]))
+				nodejs
 			];
 			extraPython3Packages = (ps: with ps; [
 				pynvim
 				tasklib
 			]);
-	};
-    xdg.configFile."nvim/coc-settings.json".text = readConfig /nvim/coc-settings.json;
+       };
+    	xdg.configFile."nvim/coc-settings.json".text = readConfig /nvim/coc-settings.json;
 
 	xdg.mimeApps = {
 		enable = true;
@@ -407,10 +408,10 @@ in rec {
 			window.border = 2;
 
 			keybindings = with config.wayland.windowManager.sway.config; {
-                #"${modifier}+Return" = "exec \"alacritty -e fish -C $(pwdx $(ps -ef | awk '$3 == pid { print $2 }' pid=$(swaymsg -t get_tree | jq '.. | select(.type?) | select(.focused==true).pid')) | awk '{ print $2 }') || alacritty\"";
-				"${modifier}+Return" = "exec $(${homeConfigDir}/sway/scripts/open-terminal-cd.bash)";
-				"Ctrl+Mod1+t" = "exec alacritty"; # Gnome default
+				"${modifier}+Return" = "exec -- $(${homeConfigDir}/sway/scripts/open-terminal-cd.bash 'foot -D')"; # If alacritty, use '${terminal} -e'
+				"Ctrl+Mod1+t" = "exec ${terminal}"; # Gnome default
 				"${modifier}+d" = "exec ${menu}";
+				"${modifier}+w" = "exec epiphany";
 				"${modifier}+Shift+q" = "kill";
 
 				"${modifier}+${up}" = "focus up";
@@ -470,7 +471,7 @@ in rec {
 				"${modifier}+n" = "exec flashfocus";
 				"XF86AudioRaiseVolume" = "exec amixer -q set Master 5%+ unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe";
 				"XF86AudioLowerVolume" = "exec amixer -q set Master 5%- unmute && amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print substr($2, 0, length($2)-1) }' > /tmp/wobpipe";
-				 "XF86AudioMute" = "amixer sset Master toggle | sed -En '/\\[on\\]/ s/.*\\[([0-9]+)%\\].*/\\1/ p; /\\[off\\]/ s/.*/0/p' | head -1 > /tmp/wobpipe";
+				"XF86AudioMute" = "amixer sset Master toggle | sed -En '/\\[on\\]/ s/.*\\[([0-9]+)%\\].*/\\1/ p; /\\[off\\]/ s/.*/0/p' | head -1 > /tmp/wobpipe";
 				"XF86MonBrightnessDown" = "exec brightnessctl set 5%-";
 				"XF86MonBrightnessUp" = "exec brightnessctl set 5%+";
 				"Print" = "exec grim - | wl-copy";
@@ -513,6 +514,38 @@ in rec {
 		enable = true;
 	};
 	xdg.configFile."alacritty/alacritty.yml".text = readConfig /alacritty/themes/gruvbox-material-alacritty.yml;
+
+	programs.foot = {
+		enable = true;
+		settings = {
+			main = {
+				term = "foot";
+				font = "monospace:size=11";
+				dpi-aware = "yes";
+				#letter-spacing="1";
+			};
+			colors = {
+				background = "282828";
+				foreground = "ebdbb2";
+				regular0 = "282828";
+				regular1 = "cc241d";
+				regular2 = "98971a";
+				regular3 = "d79921";
+				regular4 = "458588";
+				regular5 = "b16286";
+				regular6 = "689d6a";
+				regular7 = "a89984";
+				bright0 = "928374";
+				bright1 = "fb4934";
+				bright2 = "b8bb26";
+				bright3 = "fabd2f";
+				bright4 = "83a598";
+				bright5 = "d3869b";
+				bright6 = "8ec07c";
+				bright7 = "ebdbb2";
+			};
+		};
+	};
 
 	programs.fish = {
 		enable = true;
@@ -597,12 +630,12 @@ in rec {
         # SSH key stored locally
 	};
 	
-	programs.firefox = {
-		enable = true;
-		extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-			privacy-badger
-			https-everywhere
-		];
+#	programs.firefox = {
+#		enable = true;
+#		extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+#			privacy-badger
+#			https-everywhere
+#		];
 #		profiles.default = {
 #			id = 0;
 #			settings = {
@@ -610,7 +643,7 @@ in rec {
 #				"font.name.monospace.x-western" = "FiraCode Nerd Font Mono";
 #			};
 #		};
-	};
+#	};
 
 	home.stateVersion = "21.05";
 }

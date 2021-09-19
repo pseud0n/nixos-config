@@ -14,6 +14,7 @@ let
 	user = "alexs";
 	home = "/home/${user}";
 	homeManagerDir = "${home}/nixos/home-manager/config";
+	isPi = builtins.currentSystem == "aarch64-linux"; #!= "x86_64-linux";
 in {
 	imports =
 		[ # Include the results of the hardware scan.
@@ -21,36 +22,24 @@ in {
 			#./grub-savedefault.nix
 			(import "${builtins.fetchTarball https://github.com/rycee/home-manager/archive/release-21.05.tar.gz}/nixos")
 			#./home-manager/home.nix
-		];
+		] ++ (if isPi then [
+			"${builtins.fetchTarball https://github.com/NixOS/nixos-hardware/archive/refs/tags/mnt-reform2-nitrogen8m-v1.tar.gz}/raspberry-pi/4"
+			#"${builtins.fetchTarball https://github.com/NixOS/nixos-hardware/archive/936e4649098d6a5e0762058cb7687be1b2d90550.tar.gz}/raspberry-pi/4"
+			./pi.nix
+		] else [
+			./laptop.nix
+		]);
 
 	nixpkgs.config.allowUnfree = true; # proprietary drivers
+#	nixpkgs.config.permittedInsecurePackages = [
+#		"libsixel-1.8.6"
+#	];
 
 	nixpkgs.config.packageOverrides = pkgs: with pkgs;{
 	        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
 	        	inherit pkgs;
         	};
 
-	};
-
-	# Use the systemd-boot EFI boot loader.
-	boot = {
-		loader = {
-			systemd-boot.enable = true;
-			efi = {
-				canTouchEfiVariables = true;
-			};
-			grub = {
-				version = 2;
-				device = "nodev";
-				extraEntries =  ''
-					menuentry "Windows" {
-							set root=(hd0,1)
-				    		chainloader +1
-				  	}
-  				'';
-
-			};
-		};
 	};
 
 	networking.useDHCP = false;
@@ -92,13 +81,6 @@ in {
 		};
 
 		xserver = {
-			enable = true;
-            synaptics.accelFactor = "2.0";
-			libinput = {
-				enable = true;
-				mouse.accelProfile = "adaptive";
-				mouse.accelSpeed = "2.0";
-			};
 			displayManager = {
 				defaultSession = "sway";
 				lightdm.greeters.mini = {
@@ -125,7 +107,8 @@ in {
 
 	environment = {
 		variables = {
-			TERMINAL = "alacritty";
+			#TERMINAL = "alacritty";
+			TERMINAL = "foot";
 			QT_QPA_PLATFORM = "wayland";
 			XDG_CURRENT_DESTKOP = "sway";
 			MOZ_ENABLE_WAYLAND = "1";
@@ -145,27 +128,10 @@ in {
 		wrapperFeatures.gtk = true;
 	};
 
-	# Enable CUPS to print documents.
-	# https://nixos.wiki/wiki/Printing
-	services.printing = {
-		enable = true;
-		drivers = with pkgs; [
-			# Pixma
-			cnijfilter2
-		];
-	};
-
-	hardware.opengl.driSupport32Bit = true;
-	hardware.opengl.driSupport = true;
-	hardware.opengl.enable = true;
-	hardware.opengl.extraPackages32 = with pkgs.pkgsi686Linux; [ libva ];
-	hardware.opengl.setLdLibraryPath = true;
-
 	sound.enable = true;
 	hardware.pulseaudio = {
 		enable = true;
 		package = pkgs.pulseaudioFull;
-		support32Bit = true;
 	};
 
 	programs.fish.enable = true;
@@ -213,7 +179,7 @@ in {
 
 		git
 
-		mono
+		#mono
 		vulkan-tools
 
 		gparted
@@ -244,10 +210,6 @@ in {
 #			echo BOMBASS
 #		'';
 #	};
-
-	boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
-	boot.kernelModules = [ "wl" ]; # set of kernel modules loaded in second stage of boot process
-	boot.initrd.kernelModules = [ "kvm-intel" "wl" ]; # list of modules always loaded by the initrd (initial ramdisk)
 
 	# Some programs need SUID wrappers, can be configured further or are
 	# started in user sessions.
