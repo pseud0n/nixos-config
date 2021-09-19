@@ -7,7 +7,7 @@
 
 	# Enable CUPS to print documents.
 	# https://nixos.wiki/wiki/Printing
-	services.printing = if isPi then {} else {
+	services.printing = {
 		enable = true;
 		drivers = with pkgs; [
 			# Pixma
